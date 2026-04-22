@@ -140,8 +140,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
 // ── Google Gemini ──────────────────────────────────────────────────────────
 // Cuba model-model ini ikut urutan keutamaan — kalau satu gagal, cuba seterusnya
 const GEMINI_MODELS = [
-  'gemini-2.5-flash',          // Paling baru, laju, percuma
-  'gemini-2.5-flash-lite',     // Lebih ringan
+  'gemini-2.5-flash-lite',         
+  'gemini-2.5-flash',     
   'gemini-2.0-flash',            
 ];
 
