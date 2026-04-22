@@ -1,0 +1,19 @@
+# Cloudflare Pages configuration
+# This file tells Pages about AI and variable bindings
+
+[pages.build]
+command = "npm run build"
+output_directory = "dist"
+
+[pages.build.environment_variables]
+NODE_VERSION = "20"
+
+[[pages.ai]]
+binding = "AI"
+
+[[pages.vars]]
+RESEND_FROM = "hello@404found.studio"
+RESEND_TO = "mohdzairighazali@yahoo.com"
+
+# Secrets (set via Cloudflare dashboard or wrangler):
+# RESEND_API_KEY = "re_xxxxxxxxxxxxxxxxxxxx"

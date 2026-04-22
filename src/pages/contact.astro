@@ -1,0 +1,65 @@
+---
+// src/pages/contact.astro
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Contact — 404found.studio" description="Get in touch with 404found.studio. Start your web project today via email or WhatsApp.">
+  <Navbar />
+  <main style="padding-top:5rem;max-width:700px;margin:0 auto;padding-left:2rem;padding-right:2rem;padding-bottom:6rem;">
+    <div style="padding:4rem 0 3rem;">
+      <p class="label">Get in touch</p>
+      <h1>Contact Us</h1>
+      <p style="color:var(--text2);line-height:1.75;max-width:480px;">Ada plan nak buat website? Email atau WhatsApp je untuk konsultasi percuma.</p>
+    </div>
+
+    <div class="contact-options">
+      <a href="mailto:mohdzairighazali@yahoo.com" class="contact-card">
+        <span class="icon"></span>
+        <div>
+          <div class="channel-label">Email</div>
+          <div class="channel-value">hello@404found.studio</div>
+          <div class="channel-note">Usually replies within 24 hours</div>
+        </div>
+      </a>
+
+      <a href="https://wa.me/601155525587?text=Hi%2C%20I%20want%20to%20discuss%20a%20website%20project." class="contact-card" target="_blank" rel="noopener">
+        <span class="icon"></span>
+        <div>
+          <div class="channel-label">WhatsApp</div>
+          <div class="channel-value">+601155525587</div>
+          <div class="channel-note">Fastest response</div>
+        </div>
+      </a>
+
+      <a href="/" class="contact-card ai-card">
+        <span class="icon"></span>
+        <div>
+          <div class="channel-label">AI Consultant</div>
+          <div class="channel-value">Get an instant estimate</div>
+          <div class="channel-note">Chat with our AI to plan your project and generate a summary</div>
+        </div>
+      </a>
+    </div>
+
+    <div style="margin-top:3rem;padding:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;">
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.75rem;">Working Hours</h3>
+      <p style="font-size:0.875rem;color:var(--text2);line-height:1.75;">Mon – Fri: 9am – 6pm MYT<br>Sat: 10am – 2pm MYT<br>Sun: Closed (WhatsApp messages still welcome)</p>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .label { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  h1 { font-size: 2.75rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+  .contact-options { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-card { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.5rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; transition: border-color 0.2s, transform 0.2s; }
+  .contact-card:hover { border-color: rgba(0,255,136,0.35); transform: translateX(4px); }
+  .icon { font-size: 1.75rem; flex-shrink: 0; }
+  .channel-label { font-size: 0.72rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Space Mono', monospace; margin-bottom: 0.25rem; }
+  .channel-value { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+  .channel-note { font-size: 0.82rem; color: var(--text2); }
+  .ai-card { border-color: rgba(0,255,136,0.15); }
+</style>

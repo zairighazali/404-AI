@@ -1,0 +1,114 @@
+---
+// src/pages/blog/how-long-to-build-a-website.astro
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="How Long Does It Take to Build a Website? — 404found.studio"
+  description="Realistic website build timelines for Malaysian businesses. Landing pages in 3–5 days. E-commerce in 2–4 weeks. What causes delays and how to avoid them."
+>
+  <Navbar />
+  <article class="article">
+    <div class="article-header">
+      <p class="tag">Timeline</p>
+      <h1>How Long Does It Take<br /><span>to Build a Website?</span></h1>
+      <p class="meta">3 min read · 404found.studio</p>
+    </div>
+
+    <div class="article-body">
+      <p>Clients always want to know: "Bila boleh siap?" — and it's a fair question. The honest answer depends on the type of website and how prepared you are when we start. Here's a realistic breakdown.</p>
+
+      <h2>Timeline by Website Type</h2>
+
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">Landing Page</div>
+            <div class="tl-time">3–5 working days</div>
+            <p>The fastest option. With your content and branding ready, we can design, build, and deploy a high-converting landing page in under a week.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">Business Website (5–8 pages)</div>
+            <div class="tl-time">1–2 weeks</div>
+            <p>Includes discovery, design, development, content integration, and testing. If content is ready from day one, we aim for 7–10 working days.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">E-commerce Website</div>
+            <div class="tl-time">2–4 weeks</div>
+            <p>Depends on the number of products and payment integrations. A store with 20 products and standard FPX payments takes around 2 weeks. Complex catalogues or custom checkout flows take longer.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">Custom Web System</div>
+            <div class="tl-time">4–8 weeks</div>
+            <p>Booking systems, portals, dashboards. These require a detailed scoping phase before development starts, and timelines vary significantly based on complexity.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>What Causes Delays?</h2>
+      <p>In our experience, the main reasons projects run late are almost always on the client side — and that's not a criticism, just a reality of how projects work:</p>
+      <ul>
+        <li><strong>Content not ready:</strong> We can't build pages without your text, photos, and logo. Having these ready before we start cuts the timeline in half.</li>
+        <li><strong>Slow feedback rounds:</strong> If reviews take 3–4 days per round, a 2-week project becomes a 6-week project.</li>
+        <li><strong>Scope changes mid-project:</strong> "Can we also add a booking system?" mid-build always delays delivery.</li>
+        <li><strong>Domain / hosting access delays:</strong> We need login access to your domain registrar to go live. Sorting this out in advance saves days.</li>
+      </ul>
+
+      <h2>How to Speed Things Up</h2>
+      <p>Here's what we ask clients to prepare before we kick off:</p>
+      <ul>
+        <li>Your logo (PNG with transparent background, or vector)</li>
+        <li>Photos of your business, team, or products (high resolution)</li>
+        <li>Written content for each page (or budget for copywriting)</li>
+        <li>Your domain login credentials</li>
+        <li>Examples of websites you like the look of</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Our fastest project:</strong> A restaurant landing page built and live within 48 hours — the client had all content, photos, and branding ready before we spoke.
+      </div>
+
+      <p>Have a deadline in mind? Tell our AI consultant your timeline and we'll confirm if it's achievable and what we'd need to make it happen.</p>
+      <a href="/" class="cta-link">Chat with AI Consultant →</a>
+    </div>
+  </article>
+  <Footer />
+</Base>
+
+<style>
+  .article { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+  .article-header { margin-bottom: 3rem; }
+  .tag { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+  h1 span { color: var(--text2); }
+  .meta { font-size: 0.82rem; color: var(--text3); font-family: 'Space Mono', monospace; }
+  .article-body p { color: var(--text2); font-size: 0.975rem; line-height: 1.85; margin-bottom: 1.25rem; }
+  h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin: 2.25rem 0 1rem; }
+  strong { color: var(--text); }
+  ul { color: var(--text2); font-size: 0.95rem; line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  ul li { margin-bottom: 0.5rem; }
+  .timeline-list { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; position: relative; }
+  .timeline-list::before { content: ''; position: absolute; left: 9px; top: 12px; bottom: 12px; width: 2px; background: var(--border2); }
+  .timeline-item { display: flex; gap: 1.25rem; padding-bottom: 1.75rem; position: relative; }
+  .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: var(--accent-dim); border: 2px solid var(--accent); flex-shrink: 0; margin-top: 2px; position: relative; z-index: 1; }
+  .tl-content { flex: 1; }
+  .tl-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+  .tl-time { font-family: 'Space Mono', monospace; font-size: 0.82rem; color: var(--accent); margin-bottom: 0.5rem; }
+  .tl-content p { font-size: 0.875rem; color: var(--text2); line-height: 1.7; margin: 0; }
+  .callout { background: var(--bg3); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--text2); line-height: 1.7; }
+  .callout strong { color: var(--text); }
+  .cta-link { display: inline-block; margin-top: 1rem; padding: 0.875rem 2rem; background: var(--accent); color: #000; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-link:hover { background: var(--accent2); }
+</style>

@@ -1,0 +1,77 @@
+---
+// src/pages/pricing.astro
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Pricing — 404found.studio" description="Transparent web development pricing for Malaysian businesses. Landing pages from RM800. E-commerce from RM3,000.">
+  <Navbar />
+  <main style="padding-top:5rem;max-width:900px;margin:0 auto;padding-left:2rem;padding-right:2rem;">
+    <div style="text-align:center;padding:4rem 0 3rem;">
+      <p class="label">Transparent pricing</p>
+      <h1>Pricing</h1>
+      <p style="color:var(--text2);max-width:480px;margin:0 auto;line-height:1.75;">All prices in Malaysian Ringgit. Exact quotes depend on your specific scope.</p>
+    </div>
+
+    <div class="pricing-grid">
+      {[
+        { name: 'Landing Page', price: 'RM500 – RM1,500', timeline: '3–5 days', features: ['1 page', 'Contact form', 'Mobile responsive', 'Advance SEO', 'Hosting setup'] },
+        { name: 'Business Website', price: 'RM1,500 – RM5,500', timeline: '1–2 weeks', features: ['Up to 7 pages', 'Custom design', 'Contact & inquiry forms', 'SEO-ready structure', 'Google Analytics setup'], featured: true },
+        { name: 'E-commerce', price: 'RM5,000 – RM20,000', timeline: '2–4 weeks', features: ['Admin dashboards', 'Full product catalogue', 'Shopping cart', 'FPX / card / e-wallet', 'Order management', 'Inventory system'] },
+        { name: 'Custom System', price: 'Quote required', timeline: '4–8 weeks', features: ['Booking systems', 'Member portals', 'Admin dashboards', 'API integrations', 'Scoping call required'] },
+      ].map(p => (
+        <div class={`price-card ${p.featured ? 'featured' : ''}`}>
+          {p.featured && <div class="badge">Most Popular</div>}
+          <h2>{p.name}</h2>
+          <div class="price">{p.price}</div>
+          <div class="timeline">⏱ {p.timeline}</div>
+          <ul class="features">
+            {p.features.map(f => <li>✓ {f}</li>)}
+          </ul>
+          <a href="/" class="cta">Get Estimate →</a>
+        </div>
+      ))}
+    </div>
+
+    <div class="addons">
+      <h2>Add-ons</h2>
+      <div class="addons-row">
+        <div class="addon"> Booking System <span>+RM500</span></div>
+        <div class="addon"> Online Payment <span>+RM800</span></div>
+        <div class="addon"> Blog Setup <span>+RM300</span></div>
+        <div class="addon"> Advance SEO Setup <span>+RM400</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>💡 <strong>Get an instant estimate</strong> — use our <a href="/">AI consultant</a> to describe your project and receive a price range in seconds, based on your exact requirements.</p>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .label { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  h1 { font-size: 2.75rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+  .price-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; position: relative; display: flex; flex-direction: column; gap: 0.5rem; }
+  .price-card.featured { border-color: rgba(0,255,136,0.4); }
+  .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #000; font-size: 0.72rem; font-weight: 700; padding: 3px 14px; border-radius: 20px; white-space: nowrap; }
+  h2 { font-size: 1rem; font-weight: 700; }
+  .price { font-family: 'Space Mono', monospace; font-size: 1.1rem; color: var(--accent); font-weight: 700; margin: 0.25rem 0; }
+  .timeline { font-size: 0.78rem; color: var(--text3); margin-bottom: 0.5rem; }
+  .features { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+  .features li { font-size: 0.82rem; color: var(--text2); }
+  .cta { display: block; text-align: center; margin-top: 1.25rem; padding: 0.625rem; background: var(--accent-dim); border: 1px solid rgba(0,255,136,0.2); border-radius: 8px; font-size: 0.82rem; color: var(--accent); font-weight: 700; transition: all 0.2s; }
+  .cta:hover { background: var(--accent); color: #000; }
+  .addons { margin-bottom: 2rem; }
+  .addons h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+  .addons-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; }
+  .addon { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.875rem; display: flex; justify-content: space-between; align-items: center; }
+  .addon span { font-family: 'Space Mono', monospace; color: var(--accent); font-size: 0.82rem; }
+  .note { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 4rem; }
+  .note p { font-size: 0.875rem; color: var(--text2); line-height: 1.75; }
+  .note a { color: var(--accent); }
+  .note strong { color: var(--text); }
+</style>

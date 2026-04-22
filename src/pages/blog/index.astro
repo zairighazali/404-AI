@@ -1,0 +1,47 @@
+---
+// src/pages/blog/index.astro
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = [
+  { slug: 'how-much-does-a-website-cost-malaysia', tag: 'Pricing', title: 'How Much Does a Website Cost in Malaysia? (2025 Guide)', excerpt: 'A transparent breakdown of website costs in Malaysia, from simple landing pages to custom e-commerce platforms.', readTime: '5 min' },
+  { slug: 'types-of-business-websites', tag: 'Strategy', title: 'Types of Business Websites: Which One Do You Need?', excerpt: 'Not all websites are the same. Landing pages, brochure sites, e-commerce, and web apps — which fits your business?', readTime: '4 min' },
+  { slug: 'ecommerce-vs-landing-page', tag: 'Comparison', title: 'E-commerce vs Landing Page: What\'s Right for Your Business?', excerpt: 'Should you build a full online store or a focused landing page? Pros, cons, and costs of each.', readTime: '4 min' },
+  { slug: 'how-long-to-build-a-website', tag: 'Timeline', title: 'How Long Does It Take to Build a Website?', excerpt: 'From brief to launch — realistic timelines for different types of websites, and what causes delays.', readTime: '3 min' },
+];
+---
+
+<Base title="Blog — 404found.studio" description="Web development guides and resources for Malaysian businesses. Website costs, timelines, types of websites, and more.">
+  <Navbar />
+  <main style="padding-top:5rem;max-width:900px;margin:0 auto;padding-left:2rem;padding-right:2rem;padding-bottom:6rem;">
+    <div style="padding:4rem 0 3rem;">
+      <p class="label">Resources</p>
+      <h1>Blog</h1>
+      <p style="color:var(--text2);line-height:1.75;max-width:480px;">Guides, tips, and insights on building great websites for Malaysian businesses.</p>
+    </div>
+    <div class="blog-grid">
+      {posts.map(p => (
+        <a href={`/blog/${p.slug}`} class="blog-card">
+          <div class="tag">{p.tag}</div>
+          <h2>{p.title}</h2>
+          <p>{p.excerpt}</p>
+          <div class="meta">{p.readTime} read →</div>
+        </a>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .label { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  h1 { font-size: 2.75rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .blog-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; transition: all 0.25s; display: flex; flex-direction: column; gap: 0.75rem; }
+  .blog-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .tag { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; }
+  h2 { font-size: 1rem; font-weight: 700; line-height: 1.4; color: var(--text); }
+  .blog-card p { font-size: 0.85rem; color: var(--text2); line-height: 1.65; flex: 1; }
+  .meta { font-size: 0.78rem; color: var(--accent); font-family: 'Space Mono', monospace; }
+</style>

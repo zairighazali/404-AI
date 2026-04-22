@@ -1,0 +1,92 @@
+---
+// src/pages/blog/how-much-does-a-website-cost-malaysia.astro
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="How Much Does a Website Cost in Malaysia? (2025 Guide) — 404found.studio"
+  description="A transparent breakdown of website costs in Malaysia. Landing pages from RM800. E-commerce from RM3,000. Custom systems quoted. Updated for 2025."
+>
+  <Navbar />
+  <article class="article">
+    <div class="article-header">
+      <p class="tag">Pricing</p>
+      <h1>How Much Does a Website Cost in Malaysia?<br><span>(2025 Guide)</span></h1>
+      <p class="meta">5 min read · Updated 2025</p>
+    </div>
+
+    <div class="article-body">
+      <p>One of the most common questions we get at 404found.studio is: <em>"Berapa kos nak buat website?"</em> — and for good reason. Prices across Malaysia vary wildly, from RM200 freelance gigs to RM50,000+ agency projects. So what's realistic?</p>
+
+      <p>This guide gives you a transparent look at what websites actually cost in Malaysia in 2025, and more importantly, what you're getting for your money.</p>
+
+      <h2>The Short Answer</h2>
+      <div class="price-table">
+        <div class="price-row header">
+          <span>Website Type</span><span>Price Range</span><span>Timeline</span>
+        </div>
+        <div class="price-row"><span>Landing Page</span><span class="accent">RM500 – RM1,500</span><span>3–5 days</span></div>
+        <div class="price-row"><span>Business Website</span><span class="accent">RM1,500 – RM5,500</span><span>1–2 weeks</span></div>
+        <div class="price-row"><span>E-commerce</span><span class="accent">RM5,500 – RM20,000</span><span>2–4 weeks</span></div>
+        <div class="price-row"><span>Custom System</span><span class="accent">Quote required</span><span>4–8 weeks</span></div>
+      </div>
+
+      <h2>Why Prices Vary So Much</h2>
+      <p>A RM300 website from Fiverr and a RM3,500 website from a professional studio might look similar in a screenshot — but the differences are significant under the hood:</p>
+      <ul>
+        <li><strong>Performance:</strong> Professional sites load in under 2 seconds. Cheap templates often score 30–50 on Google PageSpeed.</li>
+        <li><strong>SEO structure:</strong> Proper heading hierarchy, schema markup, meta tags, and sitemap setup from day one.</li>
+        <li><strong>Mobile experience:</strong> Genuinely responsive, not just "it technically works on mobile".</li>
+        <li><strong>Security:</strong> HTTPS, secure forms, no outdated plugins.</li>
+        <li><strong>Support:</strong> Someone to call when something breaks.</li>
+      </ul>
+
+      <h2>Add-On Costs to Budget For</h2>
+      <div class="price-table">
+        <div class="price-row"><span>Booking System</span><span class="accent">+RM500</span></div>
+        <div class="price-row"><span>Online Payment Integration</span><span class="accent">+RM800</span></div>
+        <div class="price-row"><span>Blog Setup</span><span class="accent">+RM300</span></div>
+        <div class="price-row"><span>Advance SEO Setup</span><span class="accent">+RM400</span></div>
+      </div>
+
+      <h2>Domain & Hosting Costs</h2>
+      <p>Separate from development, budget for:</p>
+      <ul>
+        <li><strong>.com.my domain:</strong> ~RM50–80/year</li>
+        <li><strong>.com domain:</strong> ~RM40–60/year</li>
+        <li><strong>Hosting (Cloudflare Pages):</strong> Free for most sites</li>
+        <li><strong>Hosting (shared/VPS):</strong> RM50–300/month if needed</li>
+      </ul>
+
+      <h2>Get an Instant Estimate</h2>
+      <p>Not sure what your specific project will cost? Use our AI consultant to describe your website and get an estimated price range based on your exact requirements.</p>
+
+      <a href="/" class="cta-link">Try AI Consultant →</a>
+    </div>
+  </article>
+  <Footer />
+</Base>
+
+<style>
+  .article { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+  .article-header { margin-bottom: 3rem; }
+  .tag { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+  h1 span { color: var(--text2); font-weight: 700; }
+  .meta { font-size: 0.82rem; color: var(--text3); font-family: 'Space Mono', monospace; }
+  .article-body p { color: var(--text2); font-size: 0.975rem; line-height: 1.85; margin-bottom: 1.25rem; }
+  .article-body em { color: var(--text); }
+  h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin: 2rem 0 1rem; }
+  ul { color: var(--text2); font-size: 0.95rem; line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  ul li { margin-bottom: 0.5rem; }
+  strong { color: var(--text); }
+  .price-table { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 1.25rem 0; }
+  .price-row { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 0.875rem 1.25rem; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+  .price-row:last-child { border-bottom: none; }
+  .price-row.header { background: var(--bg3); font-weight: 700; font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; }
+  .accent { color: var(--accent); font-family: 'Space Mono', monospace; font-weight: 700; }
+  .cta-link { display: inline-block; margin-top: 1rem; padding: 0.875rem 2rem; background: var(--accent); color: #000; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-link:hover { background: var(--accent2); }
+</style>

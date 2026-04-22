@@ -1,0 +1,18 @@
+name = "404found-studio-worker"
+main = "workers/ai-consultant/index.js"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[ai]
+binding = "AI"
+
+[vars]
+RESEND_FROM = "hello@404found.studio"
+RESEND_TO = "mohdzairighazali@yahoo.com"
+
+# Set these as secrets via: wrangler secret put RESEND_API_KEY
+# wrangler secret put RESEND_API_KEY
+
+[[routes]]
+pattern = "404found.studio/api/*"
+zone_name = "404found.studio"

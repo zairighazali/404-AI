@@ -1,0 +1,103 @@
+---
+// src/components/Navbar.astro
+---
+
+<nav id="navbar">
+  <a class="logo" href="/">404<span>found</span>.studio</a>
+  <div class="nav-right">
+    <div class="nav-links">
+    </div>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 11, 0.7);
+  }
+
+  :global(html.light) nav {
+    background: rgba(245, 245, 240, 0.85);
+  }
+
+  .logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo span { color: var(--text2); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    color: var(--text2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .theme-btn {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    color: var(--text);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .theme-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('themeToggle')!;
+  const html = document.documentElement;
+
+  // Restore saved preference
+  if (localStorage.getItem('theme') === 'light') {
+    html.classList.add('light');
+    btn.textContent = '☽';
+  }
+
+  btn.addEventListener('click', () => {
+    html.classList.toggle('light');
+    const isLight = html.classList.contains('light');
+    btn.textContent = isLight ? '☽' : '☀';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>

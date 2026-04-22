@@ -1,0 +1,85 @@
+---
+// src/pages/blog/types-of-business-websites.astro
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="Types of Business Websites: Which One Do You Need? — 404found.studio"
+  description="Landing pages, brochure sites, e-commerce, web apps — learn which type of website is right for your Malaysian business."
+>
+  <Navbar />
+  <article class="article">
+    <div class="article-header">
+      <p class="tag">Strategy</p>
+      <h1>Types of Business Websites:<br /><span>Which One Do You Need?</span></h1>
+      <p class="meta">4 min read · 404found.studio</p>
+    </div>
+
+    <div class="article-body">
+      <p>Not every business needs the same kind of website. Choosing the wrong type wastes money and slows your growth. Here's a clear breakdown of the main types of business websites and exactly when to use each one.</p>
+
+      <h2>1. Landing Page</h2>
+      <p>A single, focused page with one goal: convert visitors into leads or customers. No navigation menu to distract. Just a compelling headline, your value proposition, and a call to action.</p>
+      <p><strong>Best for:</strong> Product launches, ad campaigns, freelancers, service businesses, event registrations.</p>
+      <p><strong>Cost:</strong> RM800 – RM1,500 &nbsp;·&nbsp; <strong>Timeline:</strong> 3–5 days</p>
+
+      <div class="callout">
+        <strong>When to choose a landing page:</strong> You're running Google or Meta ads and need a dedicated page that matches your ad copy. Or you offer one core service and want to keep visitors focused.
+      </div>
+
+      <h2>2. Brochure / Business Website</h2>
+      <p>A multi-page website that tells your full story — who you are, what you offer, your team, your work, and how to contact you. The digital equivalent of a professional brochure.</p>
+      <p><strong>Best for:</strong> SMEs, professional services (law, accounting, consulting), clinics, contractors, agencies.</p>
+      <p><strong>Cost:</strong> RM1,500 – RM3,500 &nbsp;·&nbsp; <strong>Timeline:</strong> 1–2 weeks</p>
+
+      <h2>3. E-commerce Website</h2>
+      <p>A full online store where customers can browse products, add to cart, and pay — all without leaving your site. Includes inventory management, order tracking, and payment gateway integration.</p>
+      <p><strong>Best for:</strong> Retail businesses, F&amp;B, fashion, electronics, and any business selling physical or digital products.</p>
+      <p><strong>Cost:</strong> RM3,000 – RM8,000 &nbsp;·&nbsp; <strong>Timeline:</strong> 2–4 weeks</p>
+
+      <h2>4. Booking / Appointment System</h2>
+      <p>Lets customers schedule appointments, classes, or services directly from your website — with automated confirmations and reminders sent via email or WhatsApp.</p>
+      <p><strong>Best for:</strong> Salons, clinics, tutors, fitness studios, car workshops, photographers.</p>
+      <p><strong>Cost:</strong> Business website + RM500 add-on &nbsp;·&nbsp; <strong>Timeline:</strong> 2 weeks</p>
+
+      <h2>5. Custom Web Application</h2>
+      <p>A purpose-built system that goes beyond a standard website — member portals, staff dashboards, custom CRMs, inventory systems, or multi-vendor marketplaces. Requires a full scoping discussion.</p>
+      <p><strong>Best for:</strong> Businesses with unique operational needs that off-the-shelf tools can't solve.</p>
+      <p><strong>Cost:</strong> Quote required &nbsp;·&nbsp; <strong>Timeline:</strong> 4–8 weeks</p>
+
+      <h2>How to Choose</h2>
+      <p>Ask yourself these questions:</p>
+      <ul>
+        <li>Do you sell products online? → E-commerce</li>
+        <li>Do you take appointments? → Business website + booking add-on</li>
+        <li>Are you running a specific campaign or promoting one service? → Landing page</li>
+        <li>Do you want to establish your brand and explain your services? → Business website</li>
+        <li>Do you have a workflow that existing tools can't handle? → Custom system</li>
+      </ul>
+
+      <p>Still not sure? Use our AI consultant to describe your situation and we'll recommend the right approach for your budget and goals.</p>
+      <a href="/" class="cta-link">Chat with AI Consultant →</a>
+    </div>
+  </article>
+  <Footer />
+</Base>
+
+<style>
+  .article { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+  .article-header { margin-bottom: 3rem; }
+  .tag { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+  h1 span { color: var(--text2); }
+  .meta { font-size: 0.82rem; color: var(--text3); font-family: 'Space Mono', monospace; }
+  .article-body p { color: var(--text2); font-size: 0.975rem; line-height: 1.85; margin-bottom: 1.25rem; }
+  h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin: 2.25rem 0 1rem; }
+  strong { color: var(--text); }
+  ul { color: var(--text2); font-size: 0.95rem; line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  ul li { margin-bottom: 0.5rem; }
+  .callout { background: var(--bg3); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.9rem; color: var(--text2); line-height: 1.7; }
+  .callout strong { color: var(--text); }
+  .cta-link { display: inline-block; margin-top: 1rem; padding: 0.875rem 2rem; background: var(--accent); color: #000; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-link:hover { background: var(--accent2); }
+</style>

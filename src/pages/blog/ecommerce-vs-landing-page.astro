@@ -1,0 +1,121 @@
+---
+// src/pages/blog/ecommerce-vs-landing-page.astro
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="E-commerce vs Landing Page: What's Right for Your Business? — 404found.studio"
+  description="Should you build a full online store or a focused landing page? Compare costs, use cases, and conversion rates to make the right choice for your Malaysian business."
+>
+  <Navbar />
+  <article class="article">
+    <div class="article-header">
+      <p class="tag">Comparison</p>
+      <h1>E-commerce vs Landing Page:<br /><span>What's Right for Your Business?</span></h1>
+      <p class="meta">4 min read · 404found.studio</p>
+    </div>
+
+    <div class="article-body">
+      <p>This is one of the most common dilemmas we hear from Malaysian business owners: "Should I build a full online store, or just a landing page?" The answer depends on what you're selling, how you sell it, and your budget.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-label">Landing Page</div>
+          <div class="compare-price">RM500 – RM1,500</div>
+          <ul>
+            <li>✓ One product or service</li>
+            <li>✓ Fast to build (3–5 days)</li>
+            <li>✓ Low maintenance</li>
+            <li>✓ Great for ad campaigns</li>
+            <li>✓ High focus = high conversion</li>
+            <li>✗ No product catalogue</li>
+            <li>✗ No cart or checkout</li>
+            <li>✗ Payment via manual methods</li>
+          </ul>
+        </div>
+        <div class="compare-card featured">
+          <div class="compare-label">E-commerce Website</div>
+          <div class="compare-price">RM5,000 – RM20,000</div>
+          <ul>
+            <li>✓ Admin dashboard</li>
+            <li>✓ Full product catalogue</li>
+            <li>✓ Shopping cart + checkout</li>
+            <li>✓ FPX / card / e-wallet payments</li>
+            <li>✓ Order management</li>
+            <li>✓ Scalable as you grow</li>
+            <li>✗ Takes 2–4 weeks to build</li>
+            <li>✗ Requires content upfront</li>
+            <li>✗ Higher ongoing maintenance</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Choose a Landing Page If...</h2>
+      <ul>
+        <li>You sell <strong>one product or service</strong> and want to test demand quickly</li>
+        <li>You're running <strong>Facebook or Google ads</strong> and need a dedicated page</li>
+        <li>Customers pay you via <strong>bank transfer, WhatsApp, or in person</strong></li>
+        <li>Your <strong>budget is under RM2,000</strong></li>
+        <li>You want to <strong>launch within a week</strong></li>
+      </ul>
+
+      <h2>Choose E-commerce If...</h2>
+      <ul>
+        <li>You have <strong>multiple products</strong> that customers browse and compare</li>
+        <li>You want customers to <strong>pay online automatically</strong> (no manual follow-up)</li>
+        <li>You need <strong>inventory management</strong> — stock counts, variants, SKUs</li>
+        <li>You're building a <strong>long-term retail brand</strong> online</li>
+        <li>You sell <strong>digital downloads</strong> or subscriptions</li>
+      </ul>
+
+      <h2>A Common Approach: Start Small, Scale Up</h2>
+      <p>Many businesses we work with start with a landing page to validate their product and generate their first sales via WhatsApp or bank transfer. Once they're confident in the demand, they invest in a full e-commerce store.</p>
+      <p>This approach reduces risk and gets you selling faster. The landing page can often be repurposed as part of the full store later.</p>
+
+      <div class="callout">
+        <strong>Pro tip:</strong> If you're unsure which to choose, start with a landing page + a WhatsApp order flow. Test for 3 months. If orders are consistent, upgrade to e-commerce.
+      </div>
+
+      <h2>What About Shopify or Lazada?</h2>
+      <p>Platforms like Shopify, Lazada, and Shopee are valid alternatives for e-commerce. The trade-off is:</p>
+      <ul>
+        <li><strong>Marketplaces (Lazada/Shopee):</strong> Large audience, but high competition, fees per sale, and you don't own your customer data.</li>
+        <li><strong>Shopify:</strong> Great platform, but monthly fees (USD $32+) and limited localisation for Malaysia (FPX, Billplz).</li>
+        <li><strong>Custom store:</strong> You own everything, no monthly platform fees, fully tailored to your brand and Malaysian payment methods.</li>
+      </ul>
+
+      <p>Not sure which path is right for you? Describe your business to our AI consultant and get a personalised recommendation.</p>
+      <a href="/" class="cta-link">Chat with AI Consultant →</a>
+    </div>
+  </article>
+  <Footer />
+</Base>
+
+<style>
+  .article { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+  .article-header { margin-bottom: 3rem; }
+  .tag { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+  h1 span { color: var(--text2); }
+  .meta { font-size: 0.82rem; color: var(--text3); font-family: 'Space Mono', monospace; }
+  .article-body p { color: var(--text2); font-size: 0.975rem; line-height: 1.85; margin-bottom: 1.25rem; }
+  h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin: 2.25rem 0 1rem; }
+  strong { color: var(--text); }
+  ul { color: var(--text2); font-size: 0.95rem; line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  ul li { margin-bottom: 0.5rem; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 2rem 0; }
+  .compare-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+  .compare-card.featured { border-color: rgba(0,255,136,0.3); }
+  .compare-label { font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Space Mono', monospace; margin-bottom: 0.5rem; }
+  .compare-price { font-family: 'Space Mono', monospace; font-size: 1rem; color: var(--accent); font-weight: 700; margin-bottom: 1rem; }
+  .compare-card ul { list-style: none; padding: 0; }
+  .compare-card ul li { font-size: 0.82rem; color: var(--text2); padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+  .compare-card ul li:last-child { border-bottom: none; }
+  .callout { background: var(--bg3); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--text2); line-height: 1.7; }
+  .callout strong { color: var(--text); }
+  .cta-link { display: inline-block; margin-top: 1rem; padding: 0.875rem 2rem; background: var(--accent); color: #000; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-link:hover { background: var(--accent2); }
+  @media (max-width: 560px) { .compare-grid { grid-template-columns: 1fr; } }
+</style>

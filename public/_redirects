@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# Redirect www to non-www
+https://www.404found.studio/* https://404found.studio/:splat 301
+
+# SPA fallback (Astro SSR handles this, but just in case)
+/* /index.html 200
