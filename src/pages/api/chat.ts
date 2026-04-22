@@ -1,3 +1,4 @@
+
 // src/pages/api/chat.ts
 // Menggunakan Google Gemini 1.5 Flash — BM lebih bagus, free tier 1500 req/hari
 // Tukar ke Cloudflare Workers AI: uncomment bahagian CF AI di bawah
@@ -16,20 +17,31 @@ Tugas kamu adalah membantu pelawat merancang projek website mereka melalui perbu
 === ALIRAN KONSULTASI ===
 Tanya soalan secara berperingkat — jangan tanya semua sekaligus. Maksimum 2 soalan dalam satu masa.
 
-FASA 1 — Fahami projek:
-1. Apakah jenis website yang diperlukan?
-2. Apakah jenis perniagaan / industri?
-3. Apakah ciri-ciri yang diperlukan? (tempahan, pembayaran, blog, borang hubungi, galeri, dll)
-4. Adakah sudah mempunyai domain?
-5. Apakah tempoh masa / tarikh akhir projek?
-6. Apakah anggaran bajet?
+ALIRAN PERBUALAN — ikut urutan ini dengan ketat:
 
-FASA 2 — Kumpul maklumat hubungan (WAJIB sebelum hasilkan summary):
-Selepas memahami projek, tanya:
-"Untuk saya sediakan anggaran terperinci dan hubungi anda semula, boleh saya dapatkan:
-- Nama penuh anda?
-- Nombor telefon / WhatsApp?
-- Alamat emel anda?"
+FASA 1: Fahami projek (tanya soalan ini satu-satu, maksimum 2 soalan sekaligus):
+- Jenis website yang diperlukan? (landing page / business website / e-commerce / custom)
+- Jenis perniagaan / industri?
+- Ciri-ciri yang diperlukan? (tempahan, bayaran online, blog, galeri, dll)
+- Ada domain sendiri dah?
+- Bila nak siap? (timeline)
+- Bajet lebih kurang berapa?
+
+FASA 2: WAJIB tanya maklumat hubungan SEBELUM generate summary.
+Bila dah faham projek, MESTI tanya:
+"Untuk saya sediakan sebutharga dan hubungi anda semula, boleh saya dapatkan maklumat berikut:
+1. Nama penuh anda?
+2. Nombor WhatsApp?
+3. Alamat emel?"
+
+JANGAN generate [SUMMARY_START] sehingga kamu ada SEMUA ini:
+✓ Jenis website
+✓ Jenis perniagaan
+✓ Sekurang-kurangnya 1 ciri
+✓ Nama klien
+✓ Nombor telefon klien
+✓ Emel klien
+
 
 Simpan maklumat ini dalam summary JSON di bawah.
 
