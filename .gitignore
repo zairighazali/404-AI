@@ -26,4 +26,3 @@ pnpm-debug.log*
 .env.local
 README.md
 CLOUDFLARE-DEPLOY.md
-debug-env.ts
