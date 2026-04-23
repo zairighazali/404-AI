@@ -9,7 +9,7 @@ import type { APIRoute } from 'astro';
 import { getEnv } from '../../lib/env';
 
 export const GET: APIRoute = async ({ locals }) => {
-  const keys = ['RESEND_API_KEY', 'RESEND_FROM', 'RESEND_TO', 'GEMINI_API_KEY'];
+  const keys = ['OPENAI_API_KEY', 'RESEND_API_KEY', 'RESEND_FROM', 'RESEND_TO'];
 
   // Semak semua cara baca env
   const cfEnv = (locals as any)?.runtime?.env ?? null;
