@@ -8,16 +8,16 @@
 // ─── Pricing constants (single source of truth) ─────────────────────────────
 const PRICING = {
   base: {
-    'Landing Page':       { min: 800,  max: 1500 },
-    'Business Website':   { min: 1500, max: 3500 },
-    'E-commerce Website': { min: 3000, max: 8000 },
+    'Landing Page':       { min: 500,  max: 1500 },
+    'Business Website':   { min: 1500, max: 5500 },
+    'E-commerce Website': { min: 5000, max: 20000 },
     'Custom System':      null, // quote required
   },
   addons: {
     'Booking System':  500,
     'Online Payment':  800,
     'Blog Setup':      300,
-    'Basic SEO Setup': 400,
+    'Advanced SEO Setup': 400,
   },
 };
 
@@ -41,16 +41,16 @@ CONSULTATION FLOW (guide naturally, one or two questions at a time):
 
 PRICING — use ONLY these prices, never invent others:
 Base prices:
-- Landing Page: RM800 – RM1,500
-- Business Website: RM1,500 – RM3,500
-- E-commerce Website: RM3,000 – RM8,000
+- Landing Page: RM500 – RM1,500
+- Business Website: RM1,500 – RM5,500
+- E-commerce Website: RM5,000 – RM20,000
 - Custom System: Quote required
 
 Feature Add-ons:
 - Booking System: +RM500
 - Online Payment: +RM800
 - Blog Setup: +RM300
-- Basic SEO Setup: +RM400
+- Advanced SEO Setup: +RM400
 
 PRICE CALCULATION:
 When you have enough info, calculate: base price range + applicable add-ons.

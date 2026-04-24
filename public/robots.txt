@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+Disallow: /api/
+Disallow: /api/chat
+Disallow: /api/email
+Disallow: /api/debug-env
+
 Sitemap: https://404found.studio/sitemap.xml
