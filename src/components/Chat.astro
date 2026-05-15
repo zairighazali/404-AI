@@ -32,6 +32,61 @@
       </button>
     </div>
   </div>
+
+  <!-- Walking cat mascot -->
+  <div class="cat-stage" id="catStage" aria-hidden="true">
+    <div class="cat-mover" id="catMover">
+      <div class="cat-body" id="catBody">
+        <svg class="cat-svg" id="catSvg" viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" overflow="visible">
+          <!-- Left ear (2×2, top-left corner) -->
+          <rect x="0" y="0" width="2" height="2" fill="#FF8C42"/>
+          <rect x="1" y="1" width="1" height="1" fill="#FFB3BA"/>
+          <!-- Right ear (2×2, top-right corner) -->
+          <rect x="8" y="0" width="2" height="2" fill="#FF8C42"/>
+          <rect x="8" y="1" width="1" height="1" fill="#FFB3BA"/>
+          <!-- Head (rows 2–6, full width) -->
+          <rect x="0" y="2" width="10" height="5" fill="#FF8C42"/>
+          <!-- Left eye (cyan 2×2) + pupil -->
+          <rect x="2" y="3" width="2" height="2" fill="#22D3EE"/>
+          <rect x="3" y="4" width="1" height="1" fill="#1A1A2E"/>
+          <!-- Right eye (cyan 2×2) + pupil -->
+          <rect x="6" y="3" width="2" height="2" fill="#22D3EE"/>
+          <rect x="7" y="4" width="1" height="1" fill="#1A1A2E"/>
+          <!-- Nose (2px wide, centered) -->
+          <rect x="4" y="5" width="2" height="1" fill="#FFB3BA"/>
+          <!-- Cheek marks (give whisker impression) -->
+          <rect x="1" y="6" width="1" height="1" fill="#FFD5A8"/>
+          <rect x="8" y="6" width="1" height="1" fill="#FFD5A8"/>
+          <!-- Body (rows 7–8) -->
+          <rect x="1" y="7" width="8" height="2" fill="#FF8C42"/>
+          <!-- Blink overlays (left + right eye) -->
+          <rect class="cat-blink-l" x="2" y="3" width="2" height="2" fill="#FF8C42"/>
+          <rect class="cat-blink-r" x="6" y="3" width="2" height="2" fill="#FF8C42"/>
+          <!-- Walk legs A: left raised, right down -->
+          <g class="cat-legs-a">
+            <rect x="2" y="10" width="2" height="2" fill="#FF8C42"/>
+            <rect x="1" y="11" width="4" height="1" fill="#FF8C42"/>
+            <rect x="6" y="9" width="2" height="3" fill="#FF8C42"/>
+            <rect x="5" y="11" width="4" height="1" fill="#FF8C42"/>
+          </g>
+          <!-- Walk legs B: left down, right raised -->
+          <g class="cat-legs-b">
+            <rect x="2" y="9" width="2" height="3" fill="#FF8C42"/>
+            <rect x="1" y="11" width="4" height="1" fill="#FF8C42"/>
+            <rect x="6" y="10" width="2" height="2" fill="#FF8C42"/>
+            <rect x="5" y="11" width="4" height="1" fill="#FF8C42"/>
+          </g>
+          <!-- Sit legs: both symmetrical -->
+          <g class="cat-sit-legs">
+            <rect x="2" y="10" width="2" height="2" fill="#FF8C42"/>
+            <rect x="6" y="10" width="2" height="2" fill="#FF8C42"/>
+            <rect x="1" y="11" width="4" height="1" fill="#FF8C42"/>
+            <rect x="5" y="11" width="4" height="1" fill="#FF8C42"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Modal email — muncul selepas user taip HANTAR -->
@@ -145,6 +200,54 @@
 .status-msg{padding:.75rem 1rem;border-radius:8px;font-size:.85rem;text-align:center;margin-top:.75rem}
 .status-ok{background:rgba(0,255,136,.1);color:var(--accent);border:1px solid rgba(0,255,136,.2)}
 .status-err{background:rgba(255,80,80,.1);color:#ff5050;border:1px solid rgba(255,80,80,.2)}
+
+/* ── Cat mascot (front-facing) ──────────────────────────── */
+.cat-stage{position:relative;width:100%;height:84px;margin-top:2rem}
+.cat-mover{position:absolute;bottom:0;left:0;will-change:transform}
+.cat-body{transform-origin:bottom center}
+.cat-svg{
+  width:60px;height:72px;display:block;
+  image-rendering:pixelated;image-rendering:crisp-edges;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+}
+
+/* Leg defaults */
+.cat-legs-b,.cat-sit-legs{opacity:0}
+
+/* Walking: body waddle + leg toggle */
+.cat-body.cat-walk{animation:catWaddle .65s ease-in-out infinite}
+@keyframes catWaddle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.cat-svg.cat-walk .cat-legs-a{animation:catLegA .32s steps(1) infinite}
+.cat-svg.cat-walk .cat-legs-b{opacity:1;animation:catLegB .32s steps(1) infinite}
+@keyframes catLegA{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes catLegB{0%,49%{opacity:0}50%,100%{opacity:1}}
+
+/* Sitting */
+.cat-svg.cat-sit .cat-legs-a{opacity:0}
+.cat-svg.cat-sit .cat-sit-legs{opacity:1}
+.cat-body.cat-sit{animation:catSitWiggle 2s ease-in-out infinite}
+@keyframes catSitWiggle{0%,100%{transform:rotate(0deg)}40%{transform:rotate(-3deg)}70%{transform:rotate(3deg)}}
+
+/* Blink */
+.cat-blink-l,.cat-blink-r{opacity:0;animation:catBlink 4.5s ease-in-out infinite}
+.cat-blink-r{animation-delay:.04s}
+@keyframes catBlink{0%,85%,100%{opacity:0}88%,92%{opacity:1}}
+
+/* React */
+.cat-svg[data-anim="react"]{animation:catReact .45s cubic-bezier(.36,.07,.19,.97)}
+@keyframes catReact{
+  0%,100%{transform:scaleX(1) scaleY(1)}
+  20%{transform:scaleX(1.15) scaleY(0.8)}
+  55%{transform:scaleX(0.88) scaleY(1.18)}
+  80%{transform:scaleX(1.04) scaleY(0.96)}
+}
+/* Think */
+.cat-svg[data-anim="think"]{animation:catThink .9s ease-in-out infinite}
+@keyframes catThink{0%,100%{transform:rotate(0deg)}35%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+
+@media(prefers-reduced-motion:reduce){
+  .cat-body,.cat-svg,.cat-blink-l,.cat-blink-r,.cat-legs-a,.cat-legs-b{animation:none!important}
+}
 </style>
 
 <script>
@@ -164,8 +267,50 @@ const statusEl = document.getElementById('emailStatus')!;
 
 const scrollDown = () => { msgsEl.scrollTop = msgsEl.scrollHeight; };
 
+// ── Cat mascot ────────────────────────────────────────────
+const catStage = document.getElementById('catStage')!;
+const catMover = document.getElementById('catMover')!;
+const catBody  = document.getElementById('catBody')!;
+const catSvg   = document.getElementById('catSvg')!;
+let catX       = 20;
+let catDir     = 1;
+let catMoving  = true;
+
+function catSetClass(cls: string) {
+  catSvg.classList.remove('cat-walk','cat-sit');
+  catBody.classList.remove('cat-walk','cat-sit');
+  if (cls) { catSvg.classList.add(cls); catBody.classList.add(cls); }
+}
+function catAnimOnce(anim: string, ms: number) {
+  catSvg.setAttribute('data-anim', anim);
+  setTimeout(() => catSvg.removeAttribute('data-anim'), ms);
+}
+function catLoop() {
+  if (catMoving) {
+    catX += catDir * 0.65;
+    const sw = catStage.offsetWidth;
+    if (catX >= sw - 62) { catX = sw - 62; catDir = -1; }
+    else if (catX <= 0)  { catX = 0;        catDir = 1;  }
+    catMover.style.transform = `translateX(${catX}px)`;
+    if (Math.random() < 0.0007) {
+      catMoving = false;
+      catSetClass('cat-sit');
+      setTimeout(() => { catMoving = true; catSetClass('cat-walk'); },
+        2200 + Math.random() * 2800);
+    }
+  }
+  requestAnimationFrame(catLoop);
+}
+new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    catSetClass('cat-walk');
+    requestAnimationFrame(catLoop);
+  }
+}, { threshold: 0.1 }).observe(catStage);
+
 // ── Render message ────────────────────────────────────────
 function addMsg(role: 'ai'|'user', raw: string) {
+  if (role === 'ai') catAnimOnce('react', 500);
   const wrap = document.createElement('div');
   wrap.className = `msg ${role}`;
 
@@ -197,6 +342,7 @@ function renderMarkdown(text: string): string {
 
 // ── Typing dots ───────────────────────────────────────────
 function showTyping() {
+  catAnimOnce('think', 8000);
   const wrap = document.createElement('div');
   wrap.className = 'msg ai'; wrap.id = 'typingMsg';
   const av = document.createElement('div');
@@ -209,7 +355,7 @@ function showTyping() {
   wrap.appendChild(av); wrap.appendChild(bub);
   msgsEl.appendChild(wrap); scrollDown();
 }
-const removeTyping = () => document.getElementById('typingMsg')?.remove();
+const removeTyping = () => { document.getElementById('typingMsg')?.remove(); catSvg.removeAttribute('data-anim'); };
 
 // ── Summary card ──────────────────────────────────────────
 function showSummaryCard(d: Record<string,any>, parentBub: HTMLElement) {
