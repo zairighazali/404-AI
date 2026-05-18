@@ -1,0 +1,205 @@
+---
+// src/pages/blog/ai-dalam-web-development.astro
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+  title="Penggunaan AI dalam Web Development — Peluang atau Perangkap? — 404found.studio"
+  description="AI memang boleh bantu buat website lebih cepat. Tapi ramai yang salah faham. Kita kupas pros dan cons AI dalam web development, dan kenapa basic tetap penting."
+>
+  <Navbar />
+  <article class="article">
+    <div class="article-header">
+      <p class="tag">Web Development</p>
+      <h1>Penggunaan AI dalam Web Development — Peluang atau Perangkap?</h1>
+      <p class="meta">7 min read · Updated 2026</p>
+    </div>
+
+    <div class="article-body">
+
+      <p>Aku nak start dengan pengakuan jujur.</p>
+
+      <p><strong>Aku guna AI dalam kerja aku.</strong></p>
+
+      <p>Setiap hari. Tak malu nak cakap.</p>
+
+      <p>Tapi ada benda yang aku nampak makin kerap berlaku dalam komuniti developer dan freelancer Malaysia yang buat aku rasa perlu tulis benda ni.</p>
+
+      <p>Ramai orang mula "jual" servis web development guna AI, padahal mereka sendiri tak faham apa yang AI tu hasilkan.</p>
+
+      <p>Dan ini masalah besar.</p>
+
+      <p><strong>Apa sebenarnya AI boleh buat untuk web development?</strong></p>
+
+      <p>Sebelum aku cerita pasal masalah, aku nak fair dulu.</p>
+
+      <p>AI memang berguna. Sangat berguna kalau kau tahu cara guna.</p>
+
+      <p>Contoh benda yang AI boleh tolong:</p>
+
+      <ul>
+        <li>- Generate kod boilerplate yang bosan dan repetitif</li>
+        <li>- Suggest cara perbaiki struktur kod</li>
+        <li>- Tolong debug error yang susah nak trace</li>
+        <li>- Draft copywriting untuk website</li>
+        <li>- Buat layout idea awal untuk design</li>
+        <li>- Explain konsep teknikal dalam bahasa senang</li>
+      </ul>
+
+      <p>Semua ni benda yang memang jimatkan masa developer yang <em>dah ada asas</em>.</p>
+
+      <p>Aku sendiri guna AI untuk buat kerja lebih cepat. Bukan sebab aku tak tahu buat, tapi sebab AI tolong aku fokus pada benda yang lebih penting.</p>
+
+      <p>Itulah perbezaannya.</p>
+
+      <p><strong>Pros: Kenapa AI memang berguna dalam web development</strong></p>
+
+      <p>Nak cakap jujur, AI dah tukar cara kita kerja secara positif dalam banyak aspek.</p>
+
+      <ul>
+        <li>- <strong>Laju:</strong> Projek yang dulu ambil seminggu, sekarang boleh siap dalam 2-3 hari</li>
+        <li>- <strong>Produktiviti:</strong> Developer boleh handle lebih banyak projek dalam masa yang sama</li>
+        <li>- <strong>Pembelajaran:</strong> Junior developer boleh belajar konsep baru dengan lebih cepat</li>
+        <li>- <strong>Debugging:</strong> Error yang dulu ambil masa berjam-jam, sekarang boleh selesai dalam minit</li>
+        <li>- <strong>Idea:</strong> AI boleh suggest pendekatan yang mungkin kau tak terfikir sendiri</li>
+      </ul>
+
+      <p>Ini semua real. Bukan tipu.</p>
+
+      <p><strong>Cons: Apa yang AI tak boleh gantikan</strong></p>
+
+      <p>Sekarang bahagian yang ramai orang tak nak dengar.</p>
+
+      <p>AI ada limit yang sangat jelas.</p>
+
+      <ul>
+        <li>- <strong>AI tak faham bisnes kau:</strong> Dia generate apa yang kau minta, bukan apa yang bisnes kau perlukan</li>
+        <li>- <strong>AI boleh salah:</strong> Kod yang AI generate kadang-kadang ada bug, security hole, atau logic yang tak betul</li>
+        <li>- <strong>AI tak boleh troubleshoot server:</strong> Kalau website kau down pukul 2 pagi, AI tak boleh login dan fix</li>
+        <li>- <strong>AI tak faham UX sebenar:</strong> Design yang cantik pada AI tak semestinya convert pelanggan</li>
+        <li>- <strong>AI tak ada accountability:</strong> Kalau projek client kau gagal, AI tak akan bertanggungjawab — kau yang kena</li>
+      </ul>
+
+      <p>Dan inilah masalah terbesar sekarang.</p>
+
+      <p><strong>Tentang "Fake Guru" AI Web Developer</strong></p>
+
+      <p>Aku nampak trend ni makin banyak.</p>
+
+      <p>Ada orang yang beli kursus online dua tiga ratus ringgit, belajar cara guna AI prompt untuk generate HTML, letak sikit gambar cantik dari Unsplash, publish ke Netlify — lepas tu terus declare diri sebagai <em>"Web Developer"</em> dan mula ambil client.</p>
+
+      <p>Benda yang dia buat?</p>
+
+      <p><strong>Landing page.</strong></p>
+
+      <p>Bukan website.</p>
+
+      <p>Landing page.</p>
+
+      <p>Perbezaannya besar. Landing page adalah satu halaman statik. Tak ada database. Tak ada backend. Tak ada user authentication. Tak ada payment gateway yang betul. Tak ada CMS untuk client update content sendiri.</p>
+
+      <p>Lepas tu dia pergi ajar orang lain pula. Charge kursus. Cakap <em>"Belajar buat website guna AI, tak perlu coding langsung!"</em></p>
+
+      <p>Dan ramai yang percaya.</p>
+
+      <p>Masalah tak nampak masa buat. Masalah nampak masa client ada issue.</p>
+
+      <ul>
+        <li>- Website lambat dan tak di-optimise betul</li>
+        <li>- Form contact tak hantar email</li>
+        <li>- Mobile view rosak</li>
+        <li>- SEO hampir sifar</li>
+        <li>- Tak ada SSL setup betul</li>
+        <li>- Domain expiry tak diurus</li>
+      </ul>
+
+      <p>Client complaint. "Developer" tu tak tahu macam mana nak fix. Sebab dia tak pernah faham pun apa yang dia buat.</p>
+
+      <p>Ini yang aku maksudkan dengan perangkap AI.</p>
+
+      <p><strong>Kenapa basic web development tetap penting walaupun ada AI?</strong></p>
+
+      <p>Bayangkan kau bagi GPS kepada seseorang yang tak tahu langsung konsep jarak, arah, atau jalan.</p>
+
+      <p>GPS tu bagus. Tapi kalau GPS tu lag, salah data, atau network problem — orang tu akan sesat.</p>
+
+      <p>Sama dengan AI dan web development.</p>
+
+      <p>Kalau kau faham basic, AI jadi multiplier. Kau kerja 10x laju.</p>
+
+      <p>Kalau kau tak faham basic, AI jadi crutch. Dan kau jatuh bila AI salah.</p>
+
+      <p>Basic yang aku maksudkan bukan susah pun:</p>
+
+      <ul>
+        <li>- Faham HTML dan CSS secara asas</li>
+        <li>- Tahu macam mana browser render halaman</li>
+        <li>- Faham konsep domain, hosting, dan DNS</li>
+        <li>- Tahu perbezaan frontend dan backend</li>
+        <li>- Faham apa itu responsive design</li>
+        <li>- Tahu macam mana nak baca error message</li>
+      </ul>
+
+      <p>Tak perlu jadi expert. Tapi perlu faham cukup untuk tahu bila AI bagi jawapan yang salah.</p>
+
+      <p><strong>Aku sendiri macam mana?</strong></p>
+
+      <p>Aku belajar web development dengan cara lama dulu. HTML, CSS, JavaScript. Faham struktur. Faham kenapa sesuatu benda buat.</p>
+
+      <p>Bila AI keluar dan makin bagus, aku guna. Tapi aku guna sebagai alat, bukan sebagai otak.</p>
+
+      <p>Bila AI generate kod yang pelik, aku tahu ia pelik. Aku boleh fix. Aku boleh explain kepada client kenapa aku buat sesuatu cara tertentu.</p>
+
+      <p>Itulah nilai sebenar seorang developer — bukan berapa laju dia boleh generate kod, tapi berapa dalam dia faham apa yang sedang berlaku.</p>
+
+      <p><strong>Kepada yang nak belajar web development sekarang</strong></p>
+
+      <p>Jangan skip basic sebab ada AI.</p>
+
+      <p>Guna AI untuk belajar lebih laju, bukan untuk bypass proses belajar.</p>
+
+      <p>Tanya AI "kenapa kod ni buat macam ni?" bukan sekadar copy paste dan harap ia jalan.</p>
+
+      <p>Kalau kau dah faham basic, AI akan jadi teman terbaik kau dalam kerja. Kalau belum, AI akan jadi lubang yang kau jatuh masuk sooner or later.</p>
+
+      <p><strong>Penutup</strong></p>
+
+      <p>AI dalam web development adalah peluang yang real.</p>
+
+      <p>Tapi seperti semua alat, ia bergantung kepada tangan yang pegang.</p>
+
+      <p>Jangan terpedaya dengan kursus yang janji kau boleh buat website profesional dalam 3 hari tanpa tahu apa-apa. Jangan terpedaya dengan sifu yang claim guna AI boleh gantikan semua kepakaran teknikal.</p>
+
+      <p>Dan kalau kau nak hire developer untuk website bisnes kau — tanya soalan. Minta mereka explain apa yang mereka buat. Developer yang faham, boleh explain dengan senang.</p>
+
+      <p>Yang tak faham? Akan terus cakap <em>"AI yang buat, aku tak tau sangat."</em></p>
+
+      <p><em>Assalamualaikum warahmatullahi wabarakatuh</em></p>
+
+      <p>Ada soalan tentang website atau nak discuss projek? Boleh terus chat dengan kami.</p>
+      <a href="/" class="cta-link">Chat with AI Consultant →</a>
+
+    </div>
+  </article>
+
+  <Footer />
+</Base>
+
+<style>
+  .article { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+  .article-header { margin-bottom: 3rem; }
+  .tag { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+  h1 span { color: var(--text2); font-weight: 700; }
+  .meta { font-size: 0.82rem; color: var(--text3); font-family: 'Space Mono', monospace; }
+  .article-body p { color: var(--text2); font-size: 0.975rem; line-height: 1.85; margin-bottom: 1.25rem; }
+  .article-body em { color: var(--text); }
+  h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin: 2rem 0 1rem; }
+  ul { color: var(--text2); font-size: 0.95rem; line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  ul li { margin-bottom: 0.5rem; }
+  strong { color: var(--text); }
+  .cta-link { display: inline-block; margin-top: 1rem; padding: 0.875rem 2rem; background: var(--accent); color: #000; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-link:hover { background: var(--accent2); }
+</style>
