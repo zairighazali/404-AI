@@ -14,6 +14,7 @@ import Footer from '../components/Footer.astro';
 >
   <Navbar />
 
+  <main>
   <!-- Hero -->
   <section class="hero">
     <div class="hero-bg-number" aria-hidden="true">404</div>
@@ -70,10 +71,10 @@ import Footer from '../components/Footer.astro';
   <!-- Services Strip -->
   <section class="services-strip">
     <div class="strip-label">
-      <span class="mono">// what we build</span>
+      <h2 class="mono">// what we build</h2>
     </div>
     <div class="services-list">
-      <div class="service-item">
+      <a href="/services" class="service-item">
         <span class="service-num">01</span>
         <div class="service-body">
           <h3>Landing Page</h3>
@@ -81,8 +82,8 @@ import Footer from '../components/Footer.astro';
           <span class="service-price">RM1,500 – RM2,500</span>
           <span class="service-delivery">7–14 hari</span>
         </div>
-      </div>
-      <div class="service-item">
+      </a>
+      <a href="/services" class="service-item">
         <span class="service-num">02</span>
         <div class="service-body">
           <h3>Business Website</h3>
@@ -90,8 +91,8 @@ import Footer from '../components/Footer.astro';
           <span class="service-price">RM3,500 – RM6,000</span>
           <span class="service-delivery">3–5 minggu</span>
         </div>
-      </div>
-      <div class="service-item">
+      </a>
+      <a href="/services" class="service-item">
         <span class="service-num">03</span>
         <div class="service-body">
           <h3>E-Commerce</h3>
@@ -99,8 +100,8 @@ import Footer from '../components/Footer.astro';
           <span class="service-price">RM10,000 – RM25,000</span>
           <span class="service-delivery">4–8 minggu</span>
         </div>
-      </div>
-      <div class="service-item">
+      </a>
+      <a href="/services" class="service-item">
         <span class="service-num">04</span>
         <div class="service-body">
           <h3>SaaS / Web App</h3>
@@ -108,12 +109,13 @@ import Footer from '../components/Footer.astro';
           <span class="service-price">RM30,000 – RM150,000+</span>
           <span class="service-delivery">8–16 minggu</span>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
   <!-- Chat -->
   <Chat />
+  </main>
 
   <Footer />
 </Base>
@@ -317,6 +319,7 @@ import Footer from '../components/Footer.astro';
   .mono {
     font-family: 'Space Mono', monospace;
     font-size: 0.72rem;
+    font-weight: 400;
     color: var(--text3);
     letter-spacing: 0.05em;
   }
@@ -325,6 +328,11 @@ import Footer from '../components/Footer.astro';
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     border: 2px solid var(--ink);
+  }
+
+  a.service-item {
+    text-decoration: none;
+    color: inherit;
   }
 
   .service-item {

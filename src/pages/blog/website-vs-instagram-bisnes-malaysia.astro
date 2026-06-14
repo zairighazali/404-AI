@@ -202,7 +202,10 @@ import Footer from '../../components/Footer.astro';
       <div class="cta-box">
         <p class="cta-label">Nak bina website untuk bisnes kau?</p>
         <p>Cerita sikit pasal bisnes kau — AI consultant kami akan tolong plan projek, anggaran kos, dan terus connect dengan team kami.</p>
-        <a href="/#chat-anchor" class="cta-btn">Start Planning →</a>
+        <div class="cta-links">
+          <a href="/#chat-anchor" class="cta-btn">Start Planning →</a>
+          <a href="/pricing" class="cta-link-secondary">Tengok Harga</a>
+        </div>
       </div>
 
     </div>
@@ -373,4 +376,16 @@ import Footer from '../../components/Footer.astro';
   }
 
   .cta-btn:hover { background: var(--accent2); transform: translateY(-1px); }
+
+  .cta-links { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+  .cta-link-secondary {
+    font-size: 0.88rem;
+    color: var(--text2);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .cta-link-secondary:hover { color: var(--text); }
 </style>
