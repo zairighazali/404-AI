@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F0EDE6"/>
+
+  <!-- 404 background watermark -->
+  <text x="820" y="480" font-family="Impact, Arial Black, sans-serif" font-size="420" fill="#1C1A18" opacity="0.05" letter-spacing="-10">404</text>
+
+  <!-- Top border line -->
+  <rect x="0" y="0" width="1200" height="6" fill="#1C1A18"/>
+
+  <!-- Logo badge -->
+  <rect x="60" y="54" width="52" height="28" fill="#C94216"/>
+  <text x="86" y="73" font-family="Courier New, monospace" font-size="13" font-weight="700" fill="white" text-anchor="middle">404</text>
+  <text x="124" y="73" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1C1A18">found.studio</text>
+
+  <!-- Divider line -->
+  <rect x="60" y="110" width="520" height="3" fill="#1C1A18"/>
+
+  <!-- Main headline -->
+  <text x="60" y="210" font-family="Impact, Arial Black, sans-serif" font-size="88" fill="#1C1A18" letter-spacing="2">KAMI BINA</text>
+  <text x="60" y="320" font-family="Impact, Arial Black, sans-serif" font-size="130" fill="#1C1A18" letter-spacing="2">WEBSITE</text>
+  <text x="60" y="430" font-family="Impact, Arial Black, sans-serif" font-size="130" fill="#1C1A18" letter-spacing="2">YANG</text>
+  <text x="60" y="540" font-family="Impact, Arial Black, sans-serif" font-size="130" fill="#C94216" letter-spacing="2">BERKESAN.</text>
+
+  <!-- Right side info block -->
+  <rect x="820" y="54" width="320" height="1" fill="#1C1A18" opacity="0.2"/>
+
+  <text x="820" y="110" font-family="Courier New, monospace" font-size="13" fill="#A09C98" letter-spacing="2">// WEB STUDIO · MALAYSIA</text>
+
+  <text x="820" y="180" font-family="Arial, sans-serif" font-size="15" fill="#6B6760">Landing Page</text>
+  <text x="1070" y="180" font-family="Courier New, monospace" font-size="15" fill="#C94216" text-anchor="end">RM1,500+</text>
+  <rect x="820" y="190" width="250" height="1" fill="#1C1A18" opacity="0.1"/>
+
+  <text x="820" y="220" font-family="Arial, sans-serif" font-size="15" fill="#6B6760">Business Website</text>
+  <text x="1070" y="220" font-family="Courier New, monospace" font-size="15" fill="#C94216" text-anchor="end">RM3,500+</text>
+  <rect x="820" y="230" width="250" height="1" fill="#1C1A18" opacity="0.1"/>
+
+  <text x="820" y="260" font-family="Arial, sans-serif" font-size="15" fill="#6B6760">E-Commerce</text>
+  <text x="1070" y="260" font-family="Courier New, monospace" font-size="15" fill="#C94216" text-anchor="end">RM10,000+</text>
+  <rect x="820" y="270" width="250" height="1" fill="#1C1A18" opacity="0.1"/>
+
+  <text x="820" y="300" font-family="Arial, sans-serif" font-size="15" fill="#6B6760">SaaS / Web App</text>
+  <text x="1070" y="300" font-family="Courier New, monospace" font-size="15" fill="#C94216" text-anchor="end">RM30,000+</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="594" width="1200" height="36" fill="#1C1A18"/>
+  <text x="60" y="618" font-family="Courier New, monospace" font-size="14" fill="#A09C98" letter-spacing="1">404found.studio</text>
+  <text x="1140" y="618" font-family="Courier New, monospace" font-size="14" fill="#A09C98" text-anchor="end" letter-spacing="1">hello@404found.studio</text>
+</svg>
