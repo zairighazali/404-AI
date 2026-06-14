@@ -8,16 +8,15 @@
 // ─── Pricing constants (single source of truth) ─────────────────────────────
 const PRICING = {
   base: {
-    'Landing Page':       { min: 500,  max: 1500 },
-    'Business Website':   { min: 1500, max: 5500 },
-    'E-commerce Website': { min: 5000, max: 20000 },
-    'Custom System':      null, // quote required
+    'Landing Page':     { min: 1500,  max: 2500 },
+    'Business Website': { min: 3500,  max: 6000 },
+    'E-Commerce':       { min: 10000, max: 25000 },
+    'SaaS / Web App':   { min: 30000, max: 150000 },
   },
   addons: {
-    'Booking System':  500,
-    'Online Payment':  800,
-    'Blog Setup':      300,
-    'Advanced SEO Setup': 400,
+    'Copywriting (per page)':      { min: 150, max: 300 },
+    'AI Feature (chatbot/automation)': { min: 800, max: 5500 },
+    'Extra Revision Round':        { min: 300, max: 500 },
   },
 };
 
@@ -40,17 +39,27 @@ CONSULTATION FLOW (guide naturally, one or two questions at a time):
 6. What is their approximate budget?
 
 PRICING — use ONLY these prices, never invent others:
-Base prices:
-- Landing Page: RM500 – RM1,500
-- Business Website: RM1,500 – RM5,500
-- E-commerce Website: RM5,000 – RM20,000
-- Custom System: Quote required
 
-Feature Add-ons:
-- Booking System: +RM500
-- Online Payment: +RM800
-- Blog Setup: +RM300
-- Advanced SEO Setup: +RM400
+Tier 1 — Landing Page: RM1,500 – RM2,500
+  Includes: 1–5 pages, custom design, mobile responsive, basic SEO, contact form + GA
+  Delivery: 7–14 hari
+
+Tier 2 — Business Website: RM3,500 – RM6,000
+  Includes: up to 10 pages + Blog/CMS, keyword research + on-page SEO, Search Console, 2 rounds revision
+  Delivery: 3–5 minggu
+
+Tier 3 — E-Commerce: RM10,000 – RM25,000
+  Includes: product catalog, cart, checkout, admin panel, payment gateway (ToyyibPay/Stripe/Billplz), basic inventory + order system, SEO for product pages
+  Delivery: 4–8 minggu
+
+Tier 4 — SaaS / Web App: RM30,000 – RM150,000+
+  Includes: custom full-stack (Next.js + Supabase), auth, roles, dashboard, admin panel, API integrations, staging + production deploy
+  Delivery: 8–16 minggu (scope dependent)
+
+Add-ons (one-time):
+- Copywriting (per page): RM150 – RM300
+- AI Feature (chatbot/automation): RM800 – RM5,500
+- Extra Revision Round: RM300 – RM500
 
 PRICE CALCULATION:
 When you have enough info, calculate: base price range + applicable add-ons.
@@ -71,10 +80,10 @@ embed this JSON block ONCE in your response:
 [SUMMARY_END]
 
 TIMELINE ESTIMATES:
-- Landing Page: 3–5 working days
-- Business Website: 1–2 weeks
-- E-commerce: 2–4 weeks
-- Custom System: 4–8 weeks
+- Landing Page: 7–14 hari
+- Business Website: 3–5 minggu
+- E-Commerce: 4–8 minggu
+- SaaS / Web App: 8–16 minggu
 
 PERSONALITY:
 - Warm, professional, helpful
@@ -109,7 +118,7 @@ export default {
   },
 };
 
-// ─── Chat handler (Cloudflare Workers AI, streaming) ──────────────────────────
+// ─── Chat handler (Anthropic API) ─────────────────────────────────────────────
 async function handleChat(request, env) {
   try {
     const { messages } = await request.json();
@@ -118,35 +127,40 @@ async function handleChat(request, env) {
       return jsonError('Invalid messages array', 400);
     }
 
-    // Build messages array for Workers AI
-    const aiMessages = [
-      { role: 'system', content: SYSTEM_PROMPT },
-      ...messages.map(m => ({
-        role: m.role === 'ai' ? 'assistant' : m.role,
-        content: String(m.content),
-      })),
-    ];
+    if (!env.ANTHROPIC_API_KEY) {
+      return jsonError('AI service not configured (ANTHROPIC_API_KEY missing)', 500);
+    }
 
-    // Stream response from Workers AI
-    // Model: @cf/meta/llama-3.3-70b-instruct-fp8-fast (best quality available)
-    const stream = await env.AI.run(
-      '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
-      {
-        messages: aiMessages,
-        max_tokens: 1024,
-        stream: true,
-      }
-    );
+    const aiMessages = messages.map(m => ({
+      role: m.role === 'ai' ? 'assistant' : m.role,
+      content: String(m.content),
+    }));
 
-    // Return SSE stream to client
-    return new Response(stream, {
+    const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
       headers: {
-        ...CORS,
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive',
+        'x-api-key': env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
       },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5',
+        max_tokens: 1024,
+        system: SYSTEM_PROMPT,
+        messages: aiMessages,
+      }),
     });
+
+    if (!anthropicRes.ok) {
+      const errBody = await anthropicRes.text();
+      console.error('Anthropic error:', errBody);
+      return jsonError('AI service error', 500);
+    }
+
+    const data = await anthropicRes.json();
+    const reply = data.content?.[0]?.text ?? '';
+
+    return jsonResponse({ reply });
 
   } catch (err) {
     console.error('Chat error:', err);

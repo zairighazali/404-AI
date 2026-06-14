@@ -7,42 +7,108 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Base
-  title="404found.studio — AI-Powered Web Development Malaysia"
-  description="Tell us about your website project. Our AI consultant helps plan your project, estimate costs, and connect you with our team. Landing pages, e-commerce, custom systems."
+  title="404found.studio — Web Development Malaysia | Bina Website Bisnes"
+  description="Kami bina website laju dan berkesan untuk bisnes Malaysia. Landing page dari RM1,500, e-commerce dari RM10,000. AI consultant percuma untuk anggaran kos."
+  canonicalURL="https://404found.studio/"
+  keywords="web development malaysia, buat website malaysia, website bisnes malaysia, landing page malaysia, e-commerce malaysia, buat website murah"
 >
   <Navbar />
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
+    <div class="hero-bg-number" aria-hidden="true">404</div>
 
-    <div class="hero-eyebrow">
-      <span class="dot"></span>
-      Web Studio · Malaysia
+    <div class="hero-inner">
+      <div class="hero-tag">
+        <span class="tag-dot"></span>
+        <span>Web Studio · Malaysia · Est. 2023</span>
+      </div>
+
+      <h1>
+        <span class="h1-line">Kami bina</span>
+        <span class="h1-line h1-big">WEBSITE</span>
+        <span class="h1-line h1-big">YANG</span>
+        <span class="h1-line h1-red">BERKESAN.</span>
+      </h1>
+
+      <div class="hero-rule"></div>
+
+      <p class="hero-sub">
+        Blur nak mula dari mana? AI consultant kami akan tolong plan project anda,
+        anggaran kos, dan hubungi terus team kami.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#chat-anchor" class="btn-primary">Mula Sekarang →</a>
+        <a href="/services" class="btn-ghost">Lihat Services</a>
+      </div>
     </div>
 
-    <h1>
-      Nak buat website<br />
-      <span class="accent">Blur nak mula dari mana?</span>
-    </h1>
-
-    <p class="hero-sub">
-      AI consultant kami akan tolong plan project anda,<br />
-      anggaran kos, dan hubungi terus team kami.
-    </p>
-
-    <div class="hero-cta">
-      <a href="#chat-anchor" class="btn-primary">Start Planning →</a>
-      <a href="/services" class="btn-outline">View Services</a>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">40+</span>
+        <span class="stat-label">Sites Built</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num">&lt;2s</span>
+        <span class="stat-label">Load Time</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num">RM1,500</span>
+        <span class="stat-label">From</span>
+      </div>
     </div>
+  </section>
 
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">40+</span><span class="stat-label">Sites built</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">&lt;2s</span><span class="stat-label">Load time</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Client satisfaction</span></div>
+  <!-- Services Strip -->
+  <section class="services-strip">
+    <div class="strip-label">
+      <span class="mono">// what we build</span>
+    </div>
+    <div class="services-list">
+      <div class="service-item">
+        <span class="service-num">01</span>
+        <div class="service-body">
+          <h3>Landing Page</h3>
+          <p>1–5 pages, custom design, mobile responsive, basic SEO + contact form.</p>
+          <span class="service-price">RM1,500 – RM2,500</span>
+          <span class="service-delivery">7–14 hari</span>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">02</span>
+        <div class="service-body">
+          <h3>Business Website</h3>
+          <p>Up to 10 pages + Blog/CMS, on-page SEO, Search Console, 2 rounds revision.</p>
+          <span class="service-price">RM3,500 – RM6,000</span>
+          <span class="service-delivery">3–5 minggu</span>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">03</span>
+        <div class="service-body">
+          <h3>E-Commerce</h3>
+          <p>Cart, checkout, admin panel, payment gateway (ToyyibPay/Stripe/Billplz).</p>
+          <span class="service-price">RM10,000 – RM25,000</span>
+          <span class="service-delivery">4–8 minggu</span>
+        </div>
+      </div>
+      <div class="service-item">
+        <span class="service-num">04</span>
+        <div class="service-body">
+          <h3>SaaS / Web App</h3>
+          <p>Full-stack custom (Next.js + Supabase), auth, roles, dashboard, API integrations.</p>
+          <span class="service-price">RM30,000 – RM150,000+</span>
+          <span class="service-delivery">8–16 minggu</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -56,228 +122,280 @@ import Footer from '../components/Footer.astro';
   /* ─── Hero ───────────────────────────────────────────── */
   .hero {
     min-height: 100vh;
+    padding: 60px 0 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 2rem 4rem;
-    text-align: center;
+    justify-content: space-between;
     position: relative;
     overflow: hidden;
   }
 
-  .hero-grid {
+  .hero-bg-number {
     position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 48px 48px;
-    opacity: 0.4;
+    right: -0.05em;
+    top: 50%;
+    transform: translateY(-52%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(220px, 35vw, 480px);
+    color: var(--border);
+    line-height: 1;
+    user-select: none;
     pointer-events: none;
+    letter-spacing: -0.04em;
   }
 
-  .hero-glow {
-    position: absolute;
-    top: 20%; left: 50%;
-    transform: translateX(-50%);
-    width: 700px; height: 500px;
-    background: radial-gradient(ellipse, rgba(0, 255, 136, 0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  .hero-inner {
+    padding: 5rem 3rem 3rem;
+    max-width: 960px;
     position: relative;
     z-index: 1;
   }
 
-  .dot {
-    display: inline-block;
-    width: 6px; height: 6px;
+  .hero-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+  }
+
+  .tag-dot {
+    width: 8px;
+    height: 8px;
     background: var(--accent);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
+    border-radius: 0;
+    display: inline-block;
+    animation: pulse 2.5s infinite;
   }
 
   h1 {
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    max-width: 860px;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
   }
 
-  .accent { color: var(--accent); }
+  .h1-line {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--text);
+  }
+
+  .h1-big {
+    font-size: clamp(5rem, 14vw, 12rem);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+  }
+
+  .h1-red {
+    font-size: clamp(5rem, 14vw, 12rem);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    color: var(--accent);
+  }
+
+  .hero-rule {
+    width: 100%;
+    height: 3px;
+    background: var(--ink);
+    margin: 2rem 0;
+  }
 
   .hero-sub {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     color: var(--text2);
-    max-width: 480px;
-    line-height: 1.7;
+    max-width: 520px;
+    line-height: 1.65;
     margin-bottom: 2.5rem;
-    position: relative;
-    z-index: 1;
   }
 
   .hero-cta {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 3rem;
-    position: relative;
-    z-index: 1;
   }
 
   .btn-primary {
-    padding: 0.875rem 2rem;
-    border-radius: 8px;
+    padding: 0.85rem 2rem;
     background: var(--accent);
-    color: #000;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
     font-weight: 700;
-    font-size: 0.95rem;
-    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--accent);
+    transition: all 0.15s;
     display: inline-block;
   }
 
-  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-
-  .btn-outline {
-    padding: 0.875rem 2rem;
-    border-radius: 8px;
+  .btn-primary:hover {
     background: transparent;
-    border: 1px solid var(--border2);
+    color: var(--accent);
+  }
+
+  .btn-ghost {
+    padding: 0.85rem 2rem;
+    background: transparent;
     color: var(--text);
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.2s;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--ink);
+    transition: all 0.15s;
     display: inline-block;
   }
 
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-  .hero-stats {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    position: relative;
-    z-index: 1;
-    padding: 1.5rem 2.5rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+  .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--bg);
   }
 
-  .stat {
+  /* ─── Stats bar ──────────────────────────────────────── */
+  .stats-bar {
+    background: var(--bg3);
+    color: var(--bg);
+    display: flex;
+    align-items: stretch;
+    border-top: 2px solid var(--ink);
+  }
+
+  .stat-item {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.2rem;
+    padding: 1.5rem 1rem;
   }
 
   .stat-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    line-height: 1;
     color: var(--accent);
-    font-weight: 700;
   }
+
+  html.dark .stat-num { color: #E8B820; }
 
   .stat-label {
-    font-size: 0.75rem;
-    color: var(--text2);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    opacity: 0.8;
   }
 
-  .stat-divider {
+  html.dark .stat-label { color: #A09C98; }
+
+  .stat-sep {
     width: 1px;
-    height: 40px;
-    background: var(--border);
+    background: rgba(240, 237, 230, 0.1);
+    margin: 1rem 0;
   }
 
-  /* ─── Services preview ───────────────────────────────── */
-  .services-preview {
-    padding: 4rem 2rem 6rem;
-    max-width: 1100px;
-    margin: 0 auto;
+  /* ─── Services strip ─────────────────────────────────── */
+  .services-strip {
+    border-top: 2px solid var(--ink);
+    padding: 3rem;
+    max-width: 100%;
   }
 
-  .section-label {
+  .strip-label {
+    margin-bottom: 2rem;
+  }
+
+  .mono {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text3);
+    letter-spacing: 0.05em;
+  }
+
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    border: 2px solid var(--ink);
+  }
+
+  .service-item {
+    padding: 1.75rem;
+    border-right: 1px solid var(--border2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: background 0.15s;
+  }
+
+  .service-item:last-child { border-right: none; }
+
+  .service-item:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .service-item:hover .service-num,
+  .service-item:hover .service-price,
+  .service-item:hover p {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .service-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+  }
+
+  .service-body h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .service-body p {
+    font-size: 0.85rem;
+    color: var(--text2);
+    line-height: 1.55;
+  }
+
+  .service-price {
     font-family: 'Space Mono', monospace;
     font-size: 0.72rem;
     color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
+    margin-top: auto;
   }
 
-  .services-preview h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 2rem;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-  }
-
-  .service-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.75rem;
-    transition: all 0.25s;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .service-card:hover {
-    border-color: rgba(0, 255, 136, 0.3);
-    transform: translateY(-2px);
-  }
-
-  .service-icon { font-size: 1.5rem; }
-
-  .service-card h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-top: 0.25rem;
-  }
-
-  .service-card p {
-    font-size: 0.85rem;
-    color: var(--text2);
-    flex: 1;
-  }
-
-  .price {
+  .service-delivery {
     font-family: 'Space Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--accent);
-    margin-top: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--text3);
+    letter-spacing: 0.05em;
   }
 
-  .services-cta { text-align: center; margin-top: 1rem; }
+  .service-item:hover .service-price { color: #fff; }
+  .service-item:hover .service-delivery { color: rgba(255,255,255,0.6); }
 
-  @media (max-width: 640px) {
-    .hero-stats { gap: 1.25rem; padding: 1rem 1.5rem; }
-    .stat-num { font-size: 1.2rem; }
+  @media (max-width: 768px) {
+    .hero-inner { padding: 4rem 1.5rem 2rem; }
+    .hero-bg-number { opacity: 0.5; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat-sep { display: none; }
+    .stat-item { min-width: 50%; }
+    .services-strip { padding: 2rem 1.5rem; }
+    .services-list { grid-template-columns: 1fr; }
+    .service-item { border-right: none; border-bottom: 1px solid var(--border2); }
+    .service-item:last-child { border-bottom: none; }
   }
 </style>

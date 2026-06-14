@@ -3,61 +3,134 @@
 import Base from '../layouts/Base.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    num: '01',
+    name: 'Landing Page',
+    price: 'RM1,500 – RM2,500',
+    timeline: '7–14 hari',
+    desc: 'High-converting single page untuk product launch, campaign, atau bisnes baru. Direka untuk convert visitors jadi leads.',
+    includes: ['1–5 pages, custom design', 'Mobile responsive', 'Basic SEO (meta, OG, sitemap, speed)', 'Contact form + Google Analytics'],
+  },
+  {
+    num: '02',
+    name: 'Business Website',
+    price: 'RM3,500 – RM6,000',
+    timeline: '3–5 minggu',
+    desc: 'Website profesional untuk company yang serius. Ada blog/CMS, on-page SEO, dan 2 rounds revision.',
+    includes: ['Up to 10 pages + Blog/CMS', 'Keyword research + on-page SEO', 'Google Search Console setup', '2 rounds of revision'],
+  },
+  {
+    num: '03',
+    name: 'E-Commerce',
+    price: 'RM10,000 – RM25,000',
+    timeline: '4–8 minggu',
+    desc: 'Online shop lengkap dengan payment gateway Malaysia, admin panel, dan inventory system.',
+    includes: ['Product catalog, cart, checkout', 'Admin panel', 'Payment: ToyyibPay / Stripe / Billplz', 'Basic inventory + order system', 'SEO for product pages'],
+  },
+  {
+    num: '04',
+    name: 'SaaS / Web App',
+    price: 'RM30,000 – RM150,000+',
+    timeline: '8–16 minggu',
+    desc: 'Custom full-stack application — platform SaaS, sistem dalaman, atau portal client. Scope dependent.',
+    includes: ['Next.js + Supabase full-stack', 'Auth, roles, dashboard, admin panel', 'API integrations', 'Staging + production deploy'],
+  },
+];
+
+const addons = [
+  { name: 'Copywriting', price: 'RM150 – RM300', unit: 'per page', desc: 'Professional copy yang SEO-friendly untuk setiap page website anda.' },
+  { name: 'AI Feature', price: 'RM800 – RM5,500', unit: 'one-time', desc: 'Chatbot, automation, atau AI integration — seperti AI consultant kami ini.' },
+  { name: 'Extra Revision', price: 'RM300 – RM500', unit: 'per round', desc: 'Tambah round revision di luar scope asal projek.' },
+];
+
+const faqs = [
+  { q: 'Berapa lama website siap?', a: 'Landing page: 7–14 hari. Business website: 3–5 minggu. E-commerce: 4–8 minggu. SaaS/Web App: 8–16 minggu bergantung scope.' },
+  { q: 'Apa yang perlu saya sediakan?', a: 'Logo, warna brand, dan content (teks + gambar) kalau ada. Kalau takde, kami boleh bantu dengan copywriting (add-on) dan stock photos.' },
+  { q: 'Boleh tak bantu dengan domain dan hosting?', a: 'Boleh. Kami akan recommend domain dan hosting yang sesuai dengan budget — yang paling murah atau percuma kalau boleh, yang penting secure dan laju.' },
+  { q: 'Apa syarat pembayaran?', a: '50% deposit sebelum kerja bermula, 50% selepas siap dan approved. Kami accept bank transfer (Maybank, CIMB, Bank Islam) dan online payment.' },
+  { q: 'Website akan mobile-friendly ke?', a: 'Semua website kami 100% responsive — tested on iOS, Android, tablet, dan desktop. Mobile-first approach.' },
+  { q: 'Ada support lepas website siap?', a: 'Ya. Kami offer monthly maintenance (updates, backup, minor changes). Tanya kami untuk details dan harga.' },
+];
 ---
 
 <Base
-  title="Services — 404found.studio"
-  description="Web development services in Malaysia: landing pages, business websites, e-commerce, speed optimisation, and automation. Transparent pricing."
+  title="Services — Web Development Malaysia | 404found.studio"
+  description="Web development services Malaysia: landing page RM1,500, business website RM3,500, e-commerce RM10,000, SaaS/web app dari RM30,000. Custom design, SEO included."
+  canonicalURL="https://404found.studio/services"
+  keywords="web development services malaysia, harga buat website malaysia, website design malaysia, e-commerce development malaysia, saas development malaysia"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }}
 >
   <Navbar />
 
   <main class="main">
+
+    <!-- Page header -->
     <div class="page-header">
-      <div class="label">What we do</div>
-      <h1>Our Services</h1>
-      <p class="sub">We build fast, modern websites that help Malaysian businesses grow online — from landing pages to complex custom systems.</p>
+      <span class="mono-label">// what we build</span>
+      <h1>OUR<br />SERVICES</h1>
+      <p class="sub">Kami bina website yang laju, modern, dan berkesan untuk bisnes Malaysia — dari landing page sampai custom web app.</p>
     </div>
 
-    <!-- Core services -->
+    <!-- Services list -->
     <section class="services-section">
-      <div class="services-grid">
-        {[
-          { icon: '', name: 'Landing Page', price: 'RM500 – RM1,500', timeline: '3–5 working days', desc: 'High-converting single pages designed to capture leads and showcase your offer. Perfect for campaigns, product launches, and freelancers. Includes a contact form, mobile optimisation, and basic SEO.' },
-          { icon: '', name: 'Business Website', price: 'RM1,500 – RM5,500', timeline: '1–2 weeks', desc: 'Multi-page professional website with custom design, service pages, team section, contact forms, and full mobile optimisation. Ideal for SMEs and service businesses.' },
-          { icon: '', name: 'E-commerce Website', price: 'RM5,000 – RM20,000', timeline: '2–4 weeks', desc: 'Full online store with product listings, shopping cart, payment gateway integration (FPX, credit card, e-wallet), and order management. Built to convert.' },
-          { icon: '', name: 'Custom System', price: 'Quote required', timeline: '4–8 weeks', desc: 'Booking systems, member portals, dashboards, admin panels, and custom web applications built to your exact specifications. Contact us for a scoping call.' },
-          { icon: '', name: 'Speed Optimisation', price: 'From RM500', timeline: '3–5 days', desc: 'Audit and optimise your existing site for Core Web Vitals, faster load times, image optimisation, caching, and improved Google rankings.' },
-          { icon: '', name: 'Automation', price: 'From RM800', timeline: '1–2 weeks', desc: 'Automate your business workflows — lead capture, follow-up emails, booking confirmations, CRM integrations, and WhatsApp notifications.' },
-        ].map(s => (
-          <div class="service-card">
-            <div class="service-icon">{s.icon}</div>
-            <h2>{s.name}</h2>
-            <p>{s.desc}</p>
-            <div class="service-meta">
-              <span class="price">{s.price}</span>
-              <span class="timeline">⏱ {s.timeline}</span>
+      {services.map(s => (
+        <div class="service-row">
+          <div class="service-row-left">
+            <span class="row-num">{s.num}</span>
+            <div>
+              <h2>{s.name}</h2>
+              <p class="row-desc">{s.desc}</p>
             </div>
           </div>
-        ))}
-      </div>
+          <div class="service-row-right">
+            <div class="row-includes">
+              {s.includes.map(item => (
+                <div class="include-item">
+                  <span class="check">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+            <div class="row-meta">
+              <div>
+                <span class="meta-label">Harga</span>
+                <span class="meta-price">{s.price}</span>
+              </div>
+              <div>
+                <span class="meta-label">Delivery</span>
+                <span class="meta-timeline">{s.timeline}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </section>
 
     <!-- Add-ons -->
     <section class="addons-section">
-      <div class="label">Feature add-ons</div>
-      <h2>Enhance Your Website</h2>
+      <div class="section-head">
+        <span class="mono-label">// add-ons (one-time)</span>
+        <h2>TAMBAH FEATURES</h2>
+      </div>
       <div class="addons-grid">
-        {[
-          { icon: '', name: 'Booking System', price: '+RM500', desc: 'Allow customers to book appointments or services directly from your website, with email confirmations.' },
-          { icon: '', name: 'Online Payment', price: '+RM800', desc: 'Accept FPX, credit card, and e-wallet payments via Stripe or Billplz — fully integrated and secure.' },
-          { icon: '', name: 'Blog Setup', price: '+RM300', desc: 'Full blog with categories, tags, RSS feed, and SEO-optimised article pages. Great for content marketing.' },
-          { icon: '', name: 'Advanced SEO Setup', price: '+RM400', desc: 'On-page SEO, meta tags, XML sitemap, schema markup, and Google Search Console setup to get found online.' },
-        ].map(a => (
+        {addons.map(a => (
           <div class="addon-card">
-            <div class="addon-icon">{a.icon}</div>
             <h3>{a.name}</h3>
             <p>{a.desc}</p>
-            <div class="addon-price">{a.price}</div>
+            <div class="addon-footer">
+              <span class="addon-price">{a.price}</span>
+              <span class="addon-unit">{a.unit}</span>
+            </div>
           </div>
         ))}
       </div>
@@ -65,17 +138,12 @@ import Footer from '../components/Footer.astro';
 
     <!-- FAQ -->
     <section class="faq-section">
-      <div class="label">FAQ</div>
-      <h2>Common Questions</h2>
+      <div class="section-head">
+        <span class="mono-label">// soalan lazim</span>
+        <h2>FAQ</h2>
+      </div>
       <div class="faq-list" id="faqList">
-        {[
-          { q: 'How long does it take to build my website?', a: 'It depends on complexity. Landing pages: 3–5 working days. Business websites: 1–2 weeks. E-commerce: 2–4 weeks. Custom systems vary.' },
-          { q: 'Do I need to provide content?', a: 'We recommend providing your own text, photos, and branding where possible. We can help with copywriting and stock photos at an additional cost.' },
-          { q: 'Can you help with hosting and domain?', a: 'Yes. We will discuss domains and hosting, of course we will look for the free or cheapest one. The important thing is that it is secured.' },
-          { q: 'What payment terms do you use?', a: '50% deposit before work begins, 50% upon completion. We accept bank transfer (Maybank, Bank Islam) and online payment.' },
-          { q: 'Will my website work on mobile?', a: 'All our websites are fully responsive and tested on iOS and Android even work on calculator! JK.' },
-          { q: 'Do you offer ongoing support?', a: 'Yes. We offer monthly maintenance packages that include updates, backups, and minor changes. Ask us for details.' },
-        ].map(faq => (
+        {faqs.map(faq => (
           <div class="faq-item">
             <button class="faq-q">
               {faq.q}
@@ -89,94 +157,239 @@ import Footer from '../components/Footer.astro';
 
     <!-- CTA -->
     <div class="cta-block">
-      <h2>Tak sure macam mana nak start?</h2>
-      <p>Tanya je AI Assistant 404found.studio. Tak perlu bayar pun.</p>
-      <div class="cta-btns">
-        <a href="/" class="btn-primary">Try AI Consultant →</a>
-        <a href="https://wa.me/601155525587" class="btn-wa" target="_blank" rel="noopener"> WhatsApp Us</a>
+      <div class="cta-inner">
+        <div>
+          <h2>TAK SURE NAK<br />MULA DARI MANA?</h2>
+          <p>Tanya AI consultant kami. Free, tiada obligation.</p>
+        </div>
+        <div class="cta-btns">
+          <a href="/" class="btn-primary">Cuba AI Consultant →</a>
+          <a href="https://wa.me/601155525587" class="btn-wa" target="_blank" rel="noopener">WhatsApp Kami</a>
+        </div>
       </div>
     </div>
+
   </main>
 
   <Footer />
 </Base>
 
 <style>
-  .main { padding-top: 5rem; max-width: 1100px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem; }
+  .main {
+    padding-top: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 
-  .page-header { text-align: center; padding: 4rem 0 3rem; max-width: 640px; margin: 0 auto; }
-
-  .label {
+  .mono-label {
     font-family: 'Space Mono', monospace;
     font-size: 0.72rem;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    color: var(--text3);
+    letter-spacing: 0.05em;
+    display: block;
     margin-bottom: 0.75rem;
   }
 
-  h1 { font-size: 2.75rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
-  h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+  /* ─── Page header ────────────────────────────────────── */
+  .page-header {
+    padding: 4rem 0 0;
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+  }
 
-  .sub { color: var(--text2); font-size: 1rem; line-height: 1.75; }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+  }
 
-  /* Services */
+  .sub {
+    color: var(--text2);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  /* ─── Services list ──────────────────────────────────── */
   .services-section { margin-bottom: 5rem; }
 
-  .services-grid {
+  .service-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border2);
+    align-items: start;
+  }
+
+  .service-row-left {
+    display: flex;
     gap: 1.5rem;
+    align-items: flex-start;
   }
 
-  .service-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: border-color 0.25s, transform 0.25s;
+  .row-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    padding-top: 0.5rem;
+    flex-shrink: 0;
   }
 
-  .service-card:hover { border-color: rgba(0, 255, 136, 0.3); transform: translateY(-2px); }
+  .service-row-left h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
 
-  .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .row-desc {
+    font-size: 0.9rem;
+    color: var(--text2);
+    line-height: 1.7;
+  }
 
-  .service-card h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+  .service-row-right { display: flex; flex-direction: column; gap: 1.5rem; }
 
-  .service-card p { font-size: 0.875rem; color: var(--text2); line-height: 1.75; margin-bottom: 1.25rem; }
+  .row-includes { display: flex; flex-direction: column; gap: 0.5rem; }
 
-  .service-meta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .include-item {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text2);
+    align-items: baseline;
+  }
 
-  .price { font-family: 'Space Mono', monospace; font-size: 0.9rem; color: var(--accent); font-weight: 700; }
+  .check {
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
 
-  .timeline { font-size: 0.8rem; color: var(--text3); }
+  .row-meta {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border2);
+  }
 
-  /* Add-ons */
-  .addons-section { margin-bottom: 5rem; }
+  .meta-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text3);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
 
-  .addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .meta-price {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 700;
+    display: block;
+  }
+
+  .meta-timeline {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text);
+    display: block;
+  }
+
+  /* ─── Add-ons ────────────────────────────────────────── */
+  .addons-section {
+    padding-top: 3rem;
+    border-top: 2px solid var(--ink);
+    margin-bottom: 5rem;
+  }
+
+  .section-head { margin-bottom: 2rem; }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid var(--ink);
+  }
 
   .addon-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1.75rem;
+    border-right: 1px solid var(--border2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: background 0.15s;
   }
 
-  .addon-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .addon-card:last-child { border-right: none; }
+  .addon-card:hover { background: var(--bg2); }
 
-  .addon-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .addon-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.03em;
+    color: var(--text);
+  }
 
-  .addon-card p { font-size: 0.82rem; color: var(--text2); line-height: 1.65; margin-bottom: 1rem; }
+  .addon-card p {
+    font-size: 0.83rem;
+    color: var(--text2);
+    line-height: 1.65;
+    flex: 1;
+  }
 
-  .addon-price { font-family: 'Space Mono', monospace; font-size: 1rem; color: var(--accent); font-weight: 700; }
+  .addon-footer {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
 
-  /* FAQ */
-  .faq-section { max-width: 720px; margin-bottom: 5rem; }
+  .addon-price {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .addon-unit {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── FAQ ────────────────────────────────────────────── */
+  .faq-section {
+    border-top: 2px solid var(--ink);
+    padding-top: 3rem;
+    margin-bottom: 5rem;
+    max-width: 720px;
+  }
 
   .faq-list { display: flex; flex-direction: column; }
 
-  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-item { border-bottom: 1px solid var(--border2); }
 
   .faq-q {
     width: 100%;
@@ -184,7 +397,7 @@ import Footer from '../components/Footer.astro';
     border: none;
     text-align: left;
     padding: 1.25rem 0;
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text);
@@ -216,54 +429,85 @@ import Footer from '../components/Footer.astro';
 
   .faq-a.open { max-height: 200px; padding-bottom: 1.25rem; }
 
-  /* CTA */
+  /* ─── CTA ────────────────────────────────────────────── */
   .cta-block {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 3rem;
-    text-align: center;
-    margin-bottom: 4rem;
+    background: var(--bg3);
+    color: var(--bg);
+    padding: 4rem 3rem;
+    margin-bottom: 5rem;
+    border: 2px solid var(--ink);
   }
 
-  .cta-block h2 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
 
-  .cta-block p { color: var(--text2); margin-bottom: 2rem; }
+  .cta-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    line-height: 0.95;
+    color: var(--bg);
+    margin-bottom: 0.75rem;
+  }
 
-  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .cta-block p { color: var(--text3); font-size: 0.95rem; }
+
+  .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
   .btn-primary {
     padding: 0.875rem 2rem;
-    border-radius: 8px;
     background: var(--accent);
-    color: #000;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
     font-weight: 700;
-    font-size: 0.95rem;
-    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--accent);
+    transition: all 0.15s;
     display: inline-block;
+    white-space: nowrap;
   }
 
-  .btn-primary:hover { background: var(--accent2); }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
 
   .btn-wa {
     padding: 0.875rem 2rem;
-    border-radius: 8px;
     background: #25D366;
     color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
     font-weight: 700;
-    font-size: 0.95rem;
-    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid #25D366;
+    transition: all 0.15s;
     display: inline-block;
+    white-space: nowrap;
   }
 
-  .btn-wa:hover { background: #1da851; }
+  .btn-wa:hover { background: transparent; color: #25D366; }
+
+  @media (max-width: 768px) {
+    .main { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .service-row { grid-template-columns: 1fr; gap: 1.5rem; }
+    .addons-grid { grid-template-columns: 1fr; }
+    .addon-card { border-right: none; border-bottom: 1px solid var(--border2); }
+    .addon-card:last-child { border-bottom: none; }
+    .cta-inner { flex-direction: column; align-items: flex-start; }
+    .cta-block h2 { font-size: 2.2rem; }
+  }
 </style>
 
 <script>
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
-      const answer = btn.nextElementSibling!;
-      const icon = btn.querySelector('.faq-icon')!;
+      const answer = btn.nextElementSibling as HTMLElement;
+      const icon = btn.querySelector('.faq-icon') as HTMLElement;
       answer.classList.toggle('open');
       icon.classList.toggle('open');
     });

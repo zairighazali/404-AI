@@ -3,11 +3,18 @@
 ---
 
 <nav id="navbar">
-  <a class="logo" href="/">404<span>found</span>.studio</a>
+  <a class="logo" href="/">
+    <span class="logo-404">404</span>found.studio
+  </a>
   <div class="nav-right">
     <div class="nav-links">
+      <a href="/studio">Studio</a>
+      <a href="/services">Services</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
     </div>
-    <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
   </div>
 </nav>
 
@@ -16,67 +23,80 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 1.25rem 2rem;
+    padding: 0 2rem;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(20px);
-    background: rgba(10, 10, 11, 0.7);
-  }
-
-  :global(html.light) nav {
-    background: rgba(245, 245, 240, 0.85);
+    border-bottom: 2px solid var(--ink);
+    background: var(--bg);
   }
 
   .logo {
-    font-family: 'Space Mono', monospace;
-    font-size: 1rem;
-    color: var(--accent);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
     letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0;
   }
 
-  .logo span { color: var(--text2); }
+  .logo-404 {
+    background: var(--accent);
+    color: #fff;
+    padding: 1px 5px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-right: 0;
+    letter-spacing: 0;
+    font-family: 'Space Mono', monospace;
+  }
 
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .nav-links a {
-    font-size: 0.8rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
     color: var(--text2);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    transition: color 0.2s;
+    transition: color 0.15s;
   }
 
-  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover { color: var(--accent); }
 
   .theme-btn {
-    background: var(--bg3);
-    border: 1px solid var(--border2);
+    background: transparent;
+    border: 2px solid var(--ink);
     color: var(--text);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 0;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    transition: all 0.2s;
+    font-size: 1rem;
+    transition: all 0.15s;
+    padding: 0;
+    line-height: 1;
   }
 
   .theme-btn:hover {
+    background: var(--accent);
     border-color: var(--accent);
-    color: var(--accent);
+    color: #fff;
   }
 
   @media (max-width: 768px) {
@@ -88,16 +108,12 @@
   const btn = document.getElementById('themeToggle')!;
   const html = document.documentElement;
 
-  // Restore saved preference
-  if (localStorage.getItem('theme') === 'light') {
-    html.classList.add('light');
-    btn.textContent = '☽';
+  if (localStorage.getItem('theme') === 'dark') {
+    html.classList.add('dark');
   }
 
   btn.addEventListener('click', () => {
-    html.classList.toggle('light');
-    const isLight = html.classList.contains('light');
-    btn.textContent = isLight ? '☽' : '☀';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    html.classList.toggle('dark');
+    localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
   });
 </script>

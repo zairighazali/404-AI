@@ -3,9 +3,6 @@ main = "workers/ai-consultant/index.js"
 compatibility_date = "2024-11-01"
 compatibility_flags = ["nodejs_compat"]
 
-[ai]
-binding = "AI"
-
 [vars]
 RESEND_FROM = "hello@404found.studio"
 RESEND_TO = "mohdzairighazali@yahoo.com"

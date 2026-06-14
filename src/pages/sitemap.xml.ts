@@ -8,16 +8,19 @@ const DOMAIN = 'https://404found.studio';
 
 // Semua pages dengan priority dan changefreq
 const pages = [
-  { url: '/',                                                     priority: '1.0', changefreq: 'weekly'  },
-  { url: '/services',                                             priority: '0.9', changefreq: 'monthly' },
-  { url: '/pricing',                                              priority: '0.9', changefreq: 'monthly' },
-  { url: '/about',                                                priority: '0.7', changefreq: 'monthly' },
-  { url: '/contact',                                              priority: '0.8', changefreq: 'monthly' },
-  { url: '/blog',                                                 priority: '0.8', changefreq: 'weekly'  },
-  { url: '/blog/how-much-does-a-website-cost-malaysia',          priority: '0.8', changefreq: 'monthly' },
-  { url: '/blog/types-of-business-websites',                     priority: '0.7', changefreq: 'monthly' },
-  { url: '/blog/ecommerce-vs-landing-page',                      priority: '0.7', changefreq: 'monthly' },
-  { url: '/blog/how-long-to-build-a-website',                    priority: '0.7', changefreq: 'monthly' },
+  { url: '/',                                                              priority: '1.0', changefreq: 'weekly'  },
+  { url: '/services',                                                      priority: '0.9', changefreq: 'monthly' },
+  { url: '/pricing',                                                       priority: '0.9', changefreq: 'monthly' },
+  { url: '/studio',                                                        priority: '0.7', changefreq: 'monthly' },
+  { url: '/contact',                                                       priority: '0.8', changefreq: 'monthly' },
+  { url: '/blog',                                                          priority: '0.8', changefreq: 'weekly'  },
+  { url: '/blog/how-much-does-a-website-cost-malaysia',                   priority: '0.8', changefreq: 'monthly' },
+  { url: '/blog/types-of-business-websites',                              priority: '0.7', changefreq: 'monthly' },
+  { url: '/blog/ecommerce-vs-landing-page',                               priority: '0.7', changefreq: 'monthly' },
+  { url: '/blog/how-long-to-build-a-website',                             priority: '0.7', changefreq: 'monthly' },
+  { url: '/blog/perlukah-setiap-bisnes-ada-website',                      priority: '0.7', changefreq: 'monthly' },
+  { url: '/blog/ai-dalam-web-development',                                priority: '0.7', changefreq: 'monthly' },
+  { url: '/blog/website-vs-instagram-bisnes-malaysia',                    priority: '0.7', changefreq: 'monthly' },
 ];
 
 export const GET: APIRoute = async () => {

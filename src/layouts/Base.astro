@@ -3,72 +3,151 @@
 export interface Props {
   title?: string;
   description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  keywords?: string;
+  jsonLd?: object | object[]; // page-specific schema (Article, FAQ, etc.)
+  noindex?: boolean;
 }
 
 const {
   title = '404found.studio — Web Development Malaysia',
-  description = 'Fast, modern websites for Malaysian businesses. AI-powered project planning. Landing pages, e-commerce, custom systems.',
+  description = 'Kami bina website laju dan berkesan untuk bisnes Malaysia. Landing page, e-commerce, custom web app. AI consultant untuk anggaran kos percuma.',
+  canonicalURL = Astro.url.href,
+  ogImage = 'https://404found.studio/og-image.jpg',
+  ogType = 'website',
+  keywords = 'web development malaysia, buat website malaysia, landing page malaysia, e-commerce malaysia, website murah malaysia',
+  jsonLd,
+  noindex = false,
 } = Astro.props;
+
+const siteName = '404found.studio';
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: '404found.studio',
+  description: 'Web development studio Malaysia. Specializing in landing pages, business websites, e-commerce, and custom web applications.',
+  url: 'https://404found.studio',
+  email: 'hello@404found.studio',
+  telephone: '+601155525587',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'MY',
+    addressRegion: 'Malaysia',
+  },
+  areaServed: 'Malaysia',
+  priceRange: 'RM1500–RM150000',
+  serviceType: ['Web Design', 'Web Development', 'E-commerce Development', 'SaaS Development', 'SEO'],
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00',
+  },
+  sameAs: ['https://wa.me/601155525587'],
+};
+
+const schemaScripts = [
+  localBusinessSchema,
+  ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []),
+];
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary meta -->
   <title>{title}</title>
   <meta name="description" content={description} />
+  {keywords && <meta name="keywords" content={keywords} />}
+  <meta name="author" content="404found.studio" />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content={siteName} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0a0a0b" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ms_MY" />
+  <meta property="og:locale:alternate" content="en_MY" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Theme & icons -->
+  <meta name="theme-color" content="#F0EDE6" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- JSON-LD Schema -->
+  {schemaScripts.map(schema => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
 </head>
-<body class="bg-[var(--bg)] text-[var(--text)] transition-colors duration-300">
+<body>
   <slot />
 </body>
 </html>
 
 <style is:global>
   :root {
-    --bg: #0a0a0b;
-    --bg2: #111113;
-    --bg3: #1a1a1f;
-    --bg4: #222228;
-    --text: #f0f0f0;
-    --text2: #9999a8;
-    --text3: #555560;
-    --accent: #00ff88;
-    --accent2: #00cc6a;
-    --accent-dim: rgba(0, 255, 136, 0.12);
-    --border: rgba(255, 255, 255, 0.08);
-    --border2: rgba(255, 255, 255, 0.15);
+    --bg: #F0EDE6;
+    --bg2: #E5E2DA;
+    --bg3: #1C1A18;
+    --bg4: #2A2825;
+    --text: #1C1A18;
+    --text2: #6B6760;
+    --text3: #A09C98;
+    --accent: #C94216;
+    --accent2: #A83510;
+    --accent-alt: #E8B820;
+    --accent-dim: rgba(201, 66, 22, 0.1);
+    --border: rgba(28, 26, 24, 0.12);
+    --border2: rgba(28, 26, 24, 0.22);
+    --ink: #1C1A18;
   }
 
-  html.light {
-    --bg: #f5f5f0;
-    --bg2: #ffffff;
-    --bg3: #eeeeea;
-    --bg4: #e0e0dc;
-    --text: #0a0a0b;
-    --text2: #555560;
-    --text3: #9999a8;
-    --accent: #008844;
-    --accent2: #006633;
-    --accent-dim: rgba(0, 136, 68, 0.1);
-    --border: rgba(0, 0, 0, 0.08);
-    --border2: rgba(0, 0, 0, 0.15);
+  html.dark {
+    --bg: #1C1A18;
+    --bg2: #252320;
+    --bg3: #F0EDE6;
+    --bg4: #E5E2DA;
+    --text: #F0EDE6;
+    --text2: #A09C98;
+    --text3: #6B6760;
+    --accent: #E05220;
+    --accent2: #C94216;
+    --accent-alt: #E8B820;
+    --accent-dim: rgba(224, 82, 32, 0.15);
+    --border: rgba(240, 237, 230, 0.1);
+    --border2: rgba(240, 237, 230, 0.18);
+    --ink: #F0EDE6;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
@@ -79,10 +158,10 @@ const {
 
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 0; }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
