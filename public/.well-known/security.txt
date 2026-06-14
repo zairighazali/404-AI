@@ -1,0 +1,6 @@
+Contact: mailto:mohdzairighazali@yahoo.com
+Contact: https://wa.me/601155525587
+Expires: 2027-06-15T00:00:00.000Z
+Preferred-Languages: ms, en
+Canonical: https://404found.studio/.well-known/security.txt
+Policy: https://404found.studio/.well-known/security.txt

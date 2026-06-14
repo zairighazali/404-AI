@@ -9,21 +9,20 @@ const tiers = [
     num: '01',
     name: 'Landing Page',
     price: 'RM1,500',
-    priceMax: 'RM2,500',
+    priceMax: 'RM3,000',
     timeline: '7–14 hari',
     features: [
       '1–5 pages, custom design',
       'Mobile responsive',
       'Basic SEO (meta, OG, sitemap, speed)',
-      'Contact form',
-      'Google Analytics setup',
+      'Contact form + Google Analytics',
     ],
   },
   {
     num: '02',
     name: 'Business Website',
     price: 'RM3,500',
-    priceMax: 'RM6,000',
+    priceMax: 'RM7,000',
     timeline: '3–5 minggu',
     featured: true,
     features: [
@@ -36,8 +35,8 @@ const tiers = [
   {
     num: '03',
     name: 'E-Commerce',
-    price: 'RM10,000',
-    priceMax: 'RM25,000',
+    price: 'RM12,000',
+    priceMax: 'RM30,000',
     timeline: '4–8 minggu',
     features: [
       'Product catalog, cart, checkout',
@@ -50,29 +49,108 @@ const tiers = [
   {
     num: '04',
     name: 'SaaS / Web App',
-    price: 'RM30,000',
-    priceMax: 'RM150,000+',
+    price: 'Bermula dari RM30,000',
+    priceMax: '',
     timeline: '8–16 minggu',
     features: [
-      'Next.js + Supabase full-stack',
+      'Custom full-stack (Next.js + Supabase)',
       'Auth, roles, dashboard, admin panel',
       'API integrations',
       'Staging + production deploy',
-      'Scope-dependent timeline',
     ],
   },
 ];
 
+const aiTiers = [
+  {
+    name: 'Starter AI Chatbot',
+    price: 'Bermula dari RM1,500',
+    tag: 'STARTER',
+    suitable: 'Website syarikat, portfolio, perkhidmatan profesional, NGO, masjid',
+    includes: [
+      'Chatbot dipasang pada website',
+      'Jawab soalan asas pelanggan',
+      'Training: website, PDF, FAQ, dokumen',
+      'Menjawab dalam BM & English',
+      'Lead capture (nama, telefon, email)',
+      'Widget chat yang kemas',
+    ],
+    notIncluded: ['WhatsApp integration', 'CRM integration', 'Automation workflow'],
+  },
+  {
+    name: 'Business AI Chatbot',
+    price: 'Bermula dari RM2,500',
+    tag: 'BUSINESS',
+    featured: true,
+    suitable: 'Agensi, kontraktor, klinik, pusat latihan, e-commerce',
+    includes: [
+      'Semua dalam Starter, plus:',
+      'Knowledge base lebih besar',
+      'Lead qualification',
+      'Borang tempahan dalam chat',
+      'Lead hantar ke email secara automatik',
+      'Prompt engineering lebih custom',
+      'Personaliti chatbot mengikut brand',
+    ],
+    notIncluded: ['WhatsApp integration', 'CRM integration'],
+  },
+  {
+    name: 'AI Automation Suite',
+    price: 'Bermula dari RM5,000+',
+    tag: 'SUITE',
+    suitable: 'Syarikat yang mahu AI gantikan kerja manual',
+    includes: [
+      'Semua dalam Business, plus:',
+      'Simpan lead ke Google Sheets',
+      'CRM integration (HubSpot / Zoho / GHL)',
+      'WhatsApp automation & follow-up',
+      'Workflow automation penuh',
+      'API integration sistem dalaman',
+      'Booking / membership system',
+    ],
+    notIncluded: [],
+  },
+];
+
+const seoPackages = [
+  {
+    name: 'Basic SEO',
+    price: 'Included dalam semua Web Tier',
+    accent: true,
+    items: ['Meta title & description', 'OG tags (WhatsApp/social preview)', 'XML Sitemap + Robots.txt', 'Google Search Console submission', 'Google Analytics 4 setup', 'Image alt text + URL structure', 'Page speed audit (Lighthouse)'],
+  },
+  {
+    name: 'Standard SEO',
+    price: 'RM800 – RM1,500',
+    items: ['Everything in Basic, plus:', 'Keyword research (20 keywords)', 'Competitor keyword gap (3 competitors)', 'On-page optimization semua pages', 'H1/H2/H3 header structure fix', 'Internal linking strategy', 'Content brief 5 pages', 'Schema markup (LocalBusiness/FAQ)', 'Google Business Profile setup', 'Delivery report + recommendation'],
+  },
+  {
+    name: 'Advanced SEO',
+    price: 'RM3,500 – RM7,500',
+    items: ['Everything in Standard, plus:', 'Deep technical SEO audit', 'Core Web Vitals optimization', 'Backlink profile audit', 'Backlink outreach strategy (20 sites)', 'Competitor analysis (5 competitors)', 'Content plan 3 bulan', 'FAQ schema + rich snippet', 'Heatmap setup (Microsoft Clarity)', 'Final SEO health score report', '1x follow-up audit call (30 min)'],
+  },
+];
+
+const notIncluded = [
+  'Product photography / videography',
+  'Video editing',
+  'Content writing (copywriting available as separate add-on)',
+  'Social media management',
+  'Backlink purchasing / black-hat SEO',
+  'Website berasaskan template marketplace',
+  'Setup WordPress standard / drag-and-drop builder',
+  'Website siap segera menggunakan template sedia ada',
+];
+
 const addons = [
   { name: 'Copywriting', price: 'RM150 – RM300', unit: 'per page' },
-  { name: 'AI Feature', price: 'RM800 – RM5,500', unit: 'one-time' },
   { name: 'Extra Revision', price: 'RM300 – RM500', unit: 'per round' },
 ];
 ---
 
 <Base
   title="Pricing — Web Development Malaysia | 404found.studio"
-  description="Harga buat website Malaysia: landing page RM1,500–RM2,500, business website RM3,500–RM6,000, e-commerce RM10,000–RM25,000, SaaS/web app dari RM30,000."
+  description="Harga buat website Malaysia: landing page RM1,500–RM3,000, business website RM3,500–RM7,000, e-commerce RM12,000–RM30,000, SaaS dari RM30,000. AI chatbot dari RM1,500."
   canonicalURL="https://404found.studio/pricing"
   keywords="harga buat website malaysia, kos website malaysia, web development price malaysia, berapa harga website, pakej website malaysia"
 >
@@ -97,8 +175,7 @@ const addons = [
               <h2>{t.name}</h2>
               <div class="card-price">
                 <span class="price-from">{t.price}</span>
-                <span class="price-sep"> – </span>
-                <span class="price-to">{t.priceMax}</span>
+                {t.priceMax && <><span class="price-sep"> – </span><span class="price-to">{t.priceMax}</span></>}
               </div>
               <div class="card-timeline">{t.timeline}</div>
             </div>
@@ -108,6 +185,54 @@ const addons = [
               ))}
             </ul>
             <a href="/" class="card-cta">Dapat Estimate →</a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- AI Solutions -->
+    <section class="ai-section">
+      <div class="section-head">
+        <span class="mono-label">// AI solutions</span>
+        <h2>AI CHATBOT & AUTOMATION</h2>
+        <p class="section-sub">Harga tidak termasuk caj penggunaan AI model, WhatsApp Business API, atau perkhidmatan pihak ketiga yang mempunyai caj langganan bulanan.</p>
+      </div>
+      <div class="ai-grid">
+        {aiTiers.map(a => (
+          <div class={`ai-card ${a.featured ? 'featured' : ''}`}>
+            {a.featured && <div class="badge">POPULAR</div>}
+            <div class="ai-tag">{a.tag}</div>
+            <h3>{a.name}</h3>
+            <div class="ai-price">{a.price}</div>
+            <p class="ai-suitable"><em>Sesuai untuk:</em> {a.suitable}</p>
+            <ul class="ai-features">
+              {a.includes.map(f => <li><span class="check">✓</span>{f}</li>)}
+            </ul>
+            {a.notIncluded.length > 0 && (
+              <ul class="ai-not">
+                {a.notIncluded.map(f => <li><span class="x-mark">✗</span>{f}</li>)}
+              </ul>
+            )}
+            <a href="/" class="card-cta">Dapat Estimate →</a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SEO Packages -->
+    <section class="seo-section">
+      <div class="section-head">
+        <span class="mono-label">// SEO packages (one-time)</span>
+        <h2>SEO PACKAGES</h2>
+      </div>
+      <div class="seo-grid">
+        {seoPackages.map(s => (
+          <div class={`seo-card ${s.accent ? 'seo-included' : ''}`}>
+            <h3>{s.name}</h3>
+            <div class={`seo-price ${s.accent ? 'seo-price-included' : ''}`}>{s.price}</div>
+            <ul class="seo-features">
+              {s.items.map(f => <li><span class="check">✓</span>{f}</li>)}
+            </ul>
           </div>
         ))}
       </div>
@@ -133,6 +258,17 @@ const addons = [
           </div>
         ))}
       </div>
+    </section>
+
+    <!-- Not Included -->
+    <section class="not-section">
+      <div class="section-head">
+        <span class="mono-label">// out of scope</span>
+        <h2>APA YANG KAMI TIDAK BUAT</h2>
+      </div>
+      <ul class="not-list">
+        {notIncluded.map(n => <li><span class="x-mark">✗</span>{n}</li>)}
+      </ul>
     </section>
 
     <!-- Note -->
@@ -578,11 +714,189 @@ const addons = [
 
   .btn-wa:hover { background: transparent; color: #25D366; }
 
+  /* ─── AI Section ────────────────────────────────────── */
+  .ai-section {
+    border-top: 2px solid var(--ink);
+    padding-top: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .section-sub {
+    font-size: 0.8rem;
+    color: var(--text3);
+    margin-top: 0.5rem;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid var(--ink);
+    margin-top: 1.5rem;
+  }
+
+  .ai-card {
+    padding: 2rem 1.5rem;
+    border-right: 1px solid var(--border2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .ai-card:last-child { border-right: none; }
+
+  .ai-card.featured { background: var(--bg2); }
+
+  .ai-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: var(--text3);
+  }
+
+  .ai-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .ai-price {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .ai-suitable {
+    font-size: 0.75rem;
+    color: var(--text3);
+    line-height: 1.5;
+  }
+
+  .ai-features, .ai-not {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+
+  .ai-features li, .ai-not li {
+    font-size: 0.78rem;
+    color: var(--text2);
+    line-height: 1.5;
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .ai-not li { color: var(--text3); }
+
+  .x-mark {
+    color: var(--text3);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  /* ─── SEO Section ────────────────────────────────────── */
+  .seo-section {
+    border-top: 2px solid var(--ink);
+    padding-top: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .seo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid var(--ink);
+    margin-top: 1.5rem;
+  }
+
+  .seo-card {
+    padding: 2rem 1.5rem;
+    border-right: 1px solid var(--border2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .seo-card:last-child { border-right: none; }
+
+  .seo-included { background: var(--bg2); }
+
+  .seo-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .seo-price {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .seo-price-included { color: var(--text3); }
+
+  .seo-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .seo-features li {
+    font-size: 0.78rem;
+    color: var(--text2);
+    line-height: 1.5;
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  /* ─── Not Included Section ───────────────────────────── */
+  .not-section {
+    border-top: 2px solid var(--ink);
+    padding-top: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .not-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border2);
+  }
+
+  .not-list li {
+    font-size: 0.875rem;
+    color: var(--text2);
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+
   @media (max-width: 900px) {
     .main { padding-left: 1.5rem; padding-right: 1.5rem; }
     .pricing-grid { grid-template-columns: 1fr 1fr; }
     .price-card { border-bottom: 1px solid var(--border2); }
     .price-card:nth-child(2n) { border-right: none; }
+    .ai-grid { grid-template-columns: 1fr; }
+    .ai-card { border-right: none; border-bottom: 1px solid var(--border2); }
+    .seo-grid { grid-template-columns: 1fr; }
+    .seo-card { border-right: none; border-bottom: 1px solid var(--border2); }
+    .not-list { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 580px) {
