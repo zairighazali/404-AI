@@ -96,7 +96,7 @@ const aiTiers = [
   },
   {
     name: 'AI Automation Suite',
-    price: 'Bermula dari RM5,000+',
+    price: 'Bermula dari RM8,000+',
     tag: 'SUITE',
     suitable: 'Syarikat yang mahu AI gantikan kerja manual',
     includes: [
@@ -121,13 +121,20 @@ const seoPackages = [
   },
   {
     name: 'Standard SEO',
-    price: 'RM800 – RM1,500',
+    price: 'RM1,500 – RM3,000',
     items: ['Everything in Basic, plus:', 'Keyword research (20 keywords)', 'Competitor keyword gap (3 competitors)', 'On-page optimization semua pages', 'H1/H2/H3 header structure fix', 'Internal linking strategy', 'Content brief 5 pages', 'Schema markup (LocalBusiness/FAQ)', 'Google Business Profile setup', 'Delivery report + recommendation'],
   },
   {
-    name: 'Advanced SEO',
-    price: 'RM3,500 – RM7,500',
-    items: ['Everything in Standard, plus:', 'Deep technical SEO audit', 'Core Web Vitals optimization', 'Backlink profile audit', 'Backlink outreach strategy (20 sites)', 'Competitor analysis (5 competitors)', 'Content plan 3 bulan', 'FAQ schema + rich snippet', 'Heatmap setup (Microsoft Clarity)', 'Final SEO health score report', '1x follow-up audit call (30 min)'],
+    name: 'Advanced SEO Setup',
+    price: 'RM2,500 – RM4,000',
+    tag: 'one-time',
+    items: ['Everything in Standard, plus:', 'Deep technical SEO audit', 'Core Web Vitals optimization', 'FAQ schema + rich snippet', 'Heatmap setup (Microsoft Clarity)', 'Technical fixes implementation', 'Final SEO health score report', '1x onboarding call (30 min)'],
+  },
+  {
+    name: 'SEO Retainer',
+    price: 'RM1,500 – RM3,000',
+    tag: 'per bulan · min 3 bulan',
+    items: ['Keyword ranking tracking & monitoring', 'Backlink profile audit', 'Backlink outreach (bulanan)', 'Competitor analysis updates', 'Content plan & brief bulanan', 'Monthly performance report'],
   },
 ];
 
@@ -222,7 +229,7 @@ const addons = [
     <!-- SEO Packages -->
     <section class="seo-section">
       <div class="section-head">
-        <span class="mono-label">// SEO packages (one-time)</span>
+        <span class="mono-label">// SEO packages</span>
         <h2>SEO PACKAGES</h2>
       </div>
       <div class="seo-grid">
@@ -230,6 +237,7 @@ const addons = [
           <div class={`seo-card ${s.accent ? 'seo-included' : ''}`}>
             <h3>{s.name}</h3>
             <div class={`seo-price ${s.accent ? 'seo-price-included' : ''}`}>{s.price}</div>
+            {s.tag && <div class="seo-tag">{s.tag}</div>}
             <ul class="seo-features">
               {s.items.map(f => <li><span class="check">✓</span>{f}</li>)}
             </ul>
@@ -812,7 +820,7 @@ const addons = [
 
   .seo-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     border: 2px solid var(--ink);
     margin-top: 1.5rem;
   }
@@ -845,6 +853,15 @@ const addons = [
   }
 
   .seo-price-included { color: var(--text3); }
+
+  .seo-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    text-transform: uppercase;
+    margin-top: -0.5rem;
+  }
 
   .seo-features {
     list-style: none;
@@ -894,8 +911,9 @@ const addons = [
     .price-card:nth-child(2n) { border-right: none; }
     .ai-grid { grid-template-columns: 1fr; }
     .ai-card { border-right: none; border-bottom: 1px solid var(--border2); }
-    .seo-grid { grid-template-columns: 1fr; }
-    .seo-card { border-right: none; border-bottom: 1px solid var(--border2); }
+    .seo-grid { grid-template-columns: 1fr 1fr; }
+    .seo-card { border-bottom: 1px solid var(--border2); }
+    .seo-card:nth-child(2n) { border-right: none; }
     .not-list { grid-template-columns: 1fr; }
   }
 

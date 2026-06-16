@@ -41,12 +41,13 @@ Website:
 AI Chatbot:
 - Starter AI Chatbot: Bermula dari RM1,500
 - Business AI Chatbot: Bermula dari RM2,500
-- AI Automation Suite: Bermula dari RM5,000+
+- AI Automation Suite: Bermula dari RM8,000+
 
-SEO (one-time, add-on):
+SEO (add-on):
 - Basic SEO: Included dalam semua web tier
-- Standard SEO: RM800–RM1,500
-- Advanced SEO: RM3,500–RM7,500
+- Standard SEO: RM1,500–RM3,000 (one-time)
+- Advanced SEO Setup: RM2,500–RM4,000 (one-time)
+- SEO Retainer: RM1,500–RM3,000/bulan (min 3 bulan)
 
 Add-ons:
 - Copywriting: RM150–RM300 per page
