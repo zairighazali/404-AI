@@ -1,0 +1,950 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    id: '01',
+    name: 'UNLOCKEDU',
+    url: 'unlockedu.my',
+    href: 'https://unlockedu.my',
+    category: 'E-Learning Platform',
+    tagline: 'Platform pembelajaran online — kursus, video streaming, pengurusan pelajar, dan sistem pembayaran dalam satu ekosistem.',
+    tags: ['LMS Core', 'Video Streaming', 'Student Portal', 'Payment Gateway', 'Progress Tracking'],
+    stack: ['Next.js', 'PostgreSQL', 'Stripe'],
+    complexity: 78,
+    arch: 'INSTRUCTOR → [LMS]\n  └─ CONTENT\n  └─ STUDENTS\n  └─ PAYMENTS',
+  },
+  {
+    id: '02',
+    name: 'EZKHAIRAT',
+    url: 'ezkhairat.com',
+    href: 'https://ezkhairat.com',
+    category: 'Multi-Tenant Khairat System',
+    tagline: 'Sistem pengurusan tabung khairat kematian berbilang komuniti — setiap persatuan ada data dan admin tersendiri.',
+    tags: ['Multi-Tenant', 'Member Mgmt', 'Auto Contributions', 'Payout Workflow', 'Admin Panel'],
+    stack: ['Next.js', 'Supabase', 'ToyyibPay'],
+    complexity: 88,
+    arch: '[PLATFORM]\n├─ ORG A → DB_A\n├─ ORG B → DB_B\n└─ ORG C → DB_C',
+  },
+  {
+    id: '03',
+    name: 'KARIAH',
+    url: 'kariah.my',
+    href: 'https://kariah.my',
+    category: 'Multi-Tenant Mosque OS',
+    tagline: 'Ekosistem pengurusan masjid sepenuhnya — ahli kariah, kewangan, acara, dan pengumuman untuk setiap masjid.',
+    tags: ['Multi-Tenant', 'Role-Based Access', 'Financial Module', 'Event System', 'Member Registry'],
+    stack: ['Next.js', 'PostgreSQL', 'Supabase'],
+    complexity: 95,
+    arch: '[PLATFORM]\n├─ MASJID A → DB_A\n├─ MASJID B → DB_B\n└─ MASJID C → DB_C',
+  },
+  {
+    id: '04',
+    name: 'LOKALJOB',
+    url: 'lokaljob.my',
+    href: 'https://lokaljob.my',
+    category: 'Freelancer Marketplace',
+    tagline: 'Marketplace dua-hala tempatan — klien post kerja, freelancer bid, bayar dalam platform, rate, selesai.',
+    tags: ['2-Sided Marketplace', 'Proposal System', 'Escrow Payment', 'Real-Time Chat', 'Review System'],
+    stack: ['Next.js', 'PostgreSQL', 'Stripe'],
+    complexity: 92,
+    arch: 'CLIENT ──→ [PLATFORM]\nFREELANCER → [ESCROW]\n      └─ PAYMENTS',
+  },
+];
+
+const caps = [
+  'Multi-Tenant Architecture', 'Role-Based Access Control', 'Payment Gateway Integration',
+  'Real-Time Systems', 'Admin Dashboard', 'Database Design', 'API Development',
+  'Auth & Sessions', 'Marketplace Logic', 'LMS Systems', 'SaaS Infrastructure',
+  'Two-Sided Platforms', 'Financial Workflows', 'User Management', 'Escrow Payments',
+  'Member Registry', 'Event Systems', 'Video Streaming',
+];
+---
+
+<Base
+  title="Work — 404found.studio | Platform & SaaS We Built"
+  description="Bukan sekadar landing page. Kami bina platform, marketplace, dan sistem multi-tenant yang hidup untuk bisnes Malaysia."
+  canonicalURL="https://404found.studio/work"
+  keywords="saas development malaysia, platform development, multi-tenant system, marketplace development, web app malaysia"
+>
+  <Navbar />
+
+  <main>
+
+    <!-- ─── HERO ─── -->
+    <section class="wk-hero">
+      <div class="wk-hero-bg" aria-hidden="true">SYSTEMS</div>
+      <div class="wk-hero-inner">
+        <div class="wk-eyebrow">
+          <span class="wk-pulse-dot"></span>
+          <span>// 05 — shipped systems</span>
+        </div>
+        <h1>
+          <span class="wk-h1-sm">BUKAN SEKADAR</span>
+          <span class="wk-h1-big">LANDING</span>
+          <span class="wk-h1-big wk-red">PAGE.</span>
+        </h1>
+        <p class="wk-sub">
+          Sistem yang hidup. Platform yang bergerak.<br/>
+          Ekosistem yang membesar bersama bisnes kau.
+        </p>
+        <div class="wk-statsbar">
+          <div class="wk-stat">
+            <span class="wk-snum" data-count="4">0</span>
+            <span class="wk-slabel">Live Systems</span>
+          </div>
+          <div class="wk-sdiv"></div>
+          <div class="wk-stat">
+            <span class="wk-snum" data-count="3">0</span>
+            <span class="wk-slabel">Multi-Tenant Platforms</span>
+          </div>
+          <div class="wk-sdiv"></div>
+          <div class="wk-stat">
+            <span class="wk-snum" data-prefix="">10K+</span>
+            <span class="wk-slabel">Users Served</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SYSTEMS SECTION (always dark) ─── -->
+    <section class="sys-wrap">
+      <canvas id="sys-canvas" aria-hidden="true"></canvas>
+
+      <div class="sys-header">
+        <span class="sys-hl">// running systems</span>
+        <div class="sys-rule"></div>
+      </div>
+
+      <div class="sys-grid">
+        {projects.map((p, i) => (
+          <article
+            class="pc"
+            data-complexity={p.complexity}
+            style={`--ci: ${i}; --cx: ${p.complexity}`}
+          >
+            <div class="pc-scan" aria-hidden="true"></div>
+
+            <div class="pc-top">
+              <div class="pc-live-badge">
+                <span class="pc-live-dot"></span>
+                <span>LIVE</span>
+              </div>
+              <span class="pc-num">{p.id}</span>
+            </div>
+
+            <pre class="pc-arch" aria-hidden="true">{p.arch}</pre>
+
+            <p class="pc-cat">{p.category}</p>
+            <h2 class="pc-name">{p.name}</h2>
+            <a href={p.href} target="_blank" rel="noopener" class="pc-url">
+              {p.url} <span>↗</span>
+            </a>
+            <p class="pc-tagline">{p.tagline}</p>
+
+            <div class="pc-cx-row">
+              <span class="pc-cx-label">// sys.complexity</span>
+              <div class="pc-bar">
+                <div class="pc-bar-fill"></div>
+              </div>
+              <span class="pc-cx-val">{p.complexity}%</span>
+            </div>
+
+            <div class="pc-tags">
+              {p.tags.map((tag, ti) => (
+                <span class="pc-tag" style={`--ti: ${ti}`}>{tag}</span>
+              ))}
+            </div>
+
+            <div class="pc-foot">
+              <div class="pc-stack">
+                {p.stack.map(s => <span class="pc-spill">{s}</span>)}
+              </div>
+              <a href={p.href} target="_blank" rel="noopener" class="pc-visit">
+                Visit Live →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- ─── CAPABILITIES MARQUEE ─── -->
+    <div class="cap-wrap" aria-hidden="true">
+      <div class="cap-track">
+        {[...caps, ...caps].map(c => (
+          <span class="cap-item">
+            <span class="cap-bullet">▸</span> {c}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- ─── MORE CTA ─── -->
+    <section class="more-wrap">
+      <div class="more-inner">
+        <div class="more-eyebrow">
+          <span class="more-dot"></span>
+          <span>// in active development</span>
+        </div>
+        <h2 class="more-title">
+          Dan banyak lagi<br/>
+          <span class="more-accent">sedang dalam binaan.</span>
+        </h2>
+        <p class="more-sub">
+          Platform-platform di atas hanya sebahagian dari apa yang kami dah hantar.
+          Kami suka projek yang complicated — sistem dengan banyak moving parts,
+          logic yang kompleks, dan skala yang nyata.
+        </p>
+        <div class="more-cta-row">
+          <a href="/contact" class="more-btn-pri">Bincang Projek Kau →</a>
+          <a href="/pricing" class="more-btn-ghost">Tengok Pricing</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+
+/* ── HERO ──────────────────────────────────────────────── */
+.wk-hero {
+  min-height: 90vh;
+  padding: 60px 0 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wk-hero-bg {
+  position: absolute;
+  right: -0.02em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(160px, 28vw, 400px);
+  color: var(--border);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: -0.03em;
+  opacity: 0.5;
+}
+
+.wk-hero-inner {
+  padding: 5rem 3rem 4rem;
+  max-width: 960px;
+  position: relative;
+  z-index: 1;
+}
+
+.wk-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text2);
+  letter-spacing: 0.12em;
+  margin-bottom: 2rem;
+  text-transform: lowercase;
+}
+
+.wk-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 0;
+  display: inline-block;
+  animation: wkPulse 2s infinite;
+}
+
+@keyframes wkPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.wk-h1-sm {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.95;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.wk-h1-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 14vw, 12rem);
+  line-height: 0.88;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.wk-red { color: var(--accent); }
+
+.wk-sub {
+  margin: 2rem 0 2.5rem;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.wk-statsbar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 2px solid var(--ink);
+  width: fit-content;
+}
+
+.wk-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  gap: 0.2rem;
+}
+
+.wk-snum {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.wk-slabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text2);
+  white-space: nowrap;
+}
+
+.wk-sdiv {
+  width: 2px;
+  height: 60px;
+  background: var(--ink);
+  flex-shrink: 0;
+}
+
+/* ── SYSTEMS SECTION (forced dark always) ────────────── */
+.sys-wrap {
+  position: relative;
+  background: #0A0908;
+  padding: 0 0 5rem;
+  overflow: hidden;
+}
+
+#sys-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.sys-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 3rem 2.5rem;
+}
+
+.sys-hl {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: #5a5550;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.sys-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── PROJECT GRID ──────────────────────────────────────── */
+.sys-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 0 3rem;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── PROJECT CARD ──────────────────────────────────────── */
+.pc {
+  background: #0A0908;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transition: background 0.3s ease;
+
+  /* reveal state */
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.pc.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--ci) * 0.12s),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--ci) * 0.12s);
+}
+
+.pc:hover {
+  background: #111009;
+}
+
+/* scan line */
+.pc-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(201,66,22,0.2) 50%,
+    transparent 100%
+  );
+  transform: translateX(-110%);
+}
+
+.pc.is-scanning .pc-scan {
+  animation: pcScan 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pcScan {
+  0%   { transform: translateX(-110%); opacity: 1; }
+  100% { transform: translateX(110%); opacity: 0; }
+}
+
+/* card top row */
+.pc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pc-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: #22c55e;
+  letter-spacing: 0.15em;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25);
+  padding: 0.25rem 0.6rem;
+}
+
+.pc-live-dot {
+  width: 5px;
+  height: 5px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: wkPulse 2s infinite;
+}
+
+.pc-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: #3a3632;
+  letter-spacing: 0.1em;
+}
+
+/* arch diagram */
+.pc-arch {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.5rem;
+  color: rgba(255,255,255,0.08);
+  line-height: 1.7;
+  white-space: pre;
+  pointer-events: none;
+  text-align: right;
+  transition: color 0.3s;
+}
+
+.pc:hover .pc-arch {
+  color: rgba(201,66,22,0.18);
+}
+
+/* category */
+.pc-cat {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* project name */
+.pc-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  color: #F0EDE6;
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* url */
+.pc-url {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: #5a5550;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.pc-url:hover { color: var(--accent); }
+.pc-url span { font-size: 0.8rem; }
+
+/* tagline */
+.pc-tagline {
+  font-size: 0.85rem;
+  color: #6B6760;
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* complexity bar */
+.pc-cx-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pc-cx-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.52rem;
+  color: #3a3632;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.pc-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.pc-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #C94216, #E8B820);
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+
+.pc.is-revealed .pc-bar-fill {
+  width: calc(var(--cx) * 1%);
+}
+
+.pc-cx-val {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: #E8B820;
+  white-space: nowrap;
+}
+
+/* tags */
+.pc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pc-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  color: #A09C98;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.25rem 0.65rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.pc.is-revealed .pc-tag {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s ease calc(0.6s + var(--ti) * 0.07s),
+    transform 0.4s ease calc(0.6s + var(--ti) * 0.07s);
+}
+
+.pc-tag:hover {
+  border-color: rgba(201,66,22,0.4);
+  color: #C94216;
+}
+
+/* card footer */
+.pc-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.pc-stack {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pc-spill {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  color: #3a3632;
+  background: rgba(255,255,255,0.04);
+  padding: 0.2rem 0.55rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  letter-spacing: 0.05em;
+}
+
+.pc-visit {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+
+.pc-visit:hover { color: #E8B820; }
+
+/* ── CAPABILITIES MARQUEE ─────────────────────────────── */
+.cap-wrap {
+  background: #0A0908;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  padding: 1.25rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cap-track {
+  display: flex;
+  width: max-content;
+  animation: capScroll 40s linear infinite;
+}
+
+.cap-track:hover { animation-play-state: paused; }
+
+@keyframes capScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.cap-item {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: #3a3632;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0 2.5rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: color 0.2s;
+}
+
+.cap-item:hover { color: #C94216; }
+
+.cap-bullet {
+  color: #C94216;
+  opacity: 0.4;
+  font-size: 0.7rem;
+}
+
+/* ── MORE CTA ──────────────────────────────────────────── */
+.more-wrap {
+  border-top: 2px solid var(--ink);
+  padding: 6rem 3rem;
+}
+
+.more-inner {
+  max-width: 680px;
+}
+
+.more-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text2);
+  letter-spacing: 0.12em;
+  margin-bottom: 2rem;
+  text-transform: lowercase;
+}
+
+.more-dot {
+  width: 8px;
+  height: 8px;
+  background: #E8B820;
+  display: inline-block;
+  animation: moreDotPulse 3s infinite;
+}
+
+@keyframes moreDotPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.more-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.92;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.more-accent { color: var(--accent); }
+
+.more-sub {
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 560px;
+}
+
+.more-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.more-btn-pri {
+  padding: 0.85rem 2rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--accent);
+  transition: all 0.15s;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.more-btn-pri:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+.more-btn-ghost {
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--ink);
+  transition: all 0.15s;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.more-btn-ghost:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .sys-grid { grid-template-columns: 1fr; margin: 0 1.5rem; }
+  .pc { padding: 2rem 1.5rem; }
+  .pc-name { font-size: clamp(3rem, 10vw, 5rem); }
+  .pc-arch { display: none; }
+}
+
+@media (max-width: 640px) {
+  .wk-hero-inner { padding: 4rem 1.5rem 3rem; }
+  .wk-statsbar { flex-direction: column; width: 100%; }
+  .wk-sdiv { width: 100%; height: 2px; }
+  .wk-stat { width: 100%; padding: 1rem 1.5rem; }
+  .sys-header { padding: 2rem 1.5rem; }
+  .more-wrap { padding: 4rem 1.5rem; }
+  .more-cta-row { flex-direction: column; }
+  .more-btn-pri, .more-btn-ghost { text-align: center; }
+}
+</style>
+
+<script>
+/* ── CANVAS NETWORK BACKGROUND ─────────────────────────── */
+(function () {
+  const canvas = document.getElementById('sys-canvas') as HTMLCanvasElement;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d')!;
+
+  const ACCENT = 'rgba(201,66,22,';
+  const GOLD   = 'rgba(232,184,32,';
+  const DIM    = 'rgba(80,75,70,';
+  const MAX_D  = 160;
+  const COUNT  = 55;
+
+  interface Node { x: number; y: number; vx: number; vy: number; r: number; type: number; }
+
+  let W = 0, H = 0, nodes: Node[] = [];
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function spawn(): Node[] {
+    return Array.from({ length: COUNT }, () => ({
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r:  Math.random() * 1.5 + 0.5,
+      type: Math.random() > 0.85 ? 2 : Math.random() > 0.8 ? 1 : 0,
+    }));
+  }
+
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    });
+
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[j].x - nodes[i].x;
+        const dy = nodes[j].y - nodes[i].y;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < MAX_D) {
+          const a = (1 - d / MAX_D) * 0.18;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          const isHot = nodes[i].type === 2 || nodes[j].type === 2;
+          ctx.strokeStyle = isHot ? ACCENT + a + ')' : DIM + (a * 0.6) + ')';
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle =
+        n.type === 2 ? ACCENT + '0.7)' :
+        n.type === 1 ? GOLD   + '0.5)' :
+                       DIM    + '0.4)';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(tick);
+  }
+
+  resize();
+  nodes = spawn();
+  tick();
+
+  let resizeTimer: ReturnType<typeof setTimeout>;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { resize(); nodes = spawn(); }, 150);
+  });
+})();
+
+/* ── CARD REVEAL (IntersectionObserver) ─────────────────── */
+(function () {
+  const cards = document.querySelectorAll<HTMLElement>('.pc');
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const card = entry.target as HTMLElement;
+      card.classList.add('is-scanning');
+      requestAnimationFrame(() => {
+        card.classList.add('is-revealed');
+      });
+      io.unobserve(card);
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(c => io.observe(c));
+})();
+
+/* ── COUNTER ANIMATION ──────────────────────────────────── */
+(function () {
+  const counters = document.querySelectorAll<HTMLElement>('[data-count]');
+
+  function animate(el: HTMLElement) {
+    const target = parseInt(el.dataset.count!);
+    const dur    = 1600;
+    const start  = performance.now();
+    function frame(now: number) {
+      const p = Math.min((now - start) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(e * target));
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      animate(entry.target as HTMLElement);
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(c => io.observe(c));
+})();
+</script>
